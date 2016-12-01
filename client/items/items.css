@@ -1,0 +1,26 @@
+.item-row {
+    font-size: 16px;
+    height: 50px;
+    display: flex;
+    background-color: rgb(31, 85, 138);
+    margin: 1px 0;
+}
+
+.item-icon {
+    margin: 0 10px 0 5px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.item-detail {
+    display: flex;
+    align-items: center;
+}
+
+.item-sheet {
+    border: 1px solid #e6e6e6;
+    background-color: rgb(31, 85, 138);
+    margin: 10px;
+    padding: 10px;
+}

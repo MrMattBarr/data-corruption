@@ -1,0 +1,146 @@
+    /* CSS declarations go here */
+    
+    body {
+        background-color: rgb(31, 85, 138);
+        background-image: url("bright-squares.png");
+        color: #dedede;
+        background-attachment: fixed;
+        margin: 0;
+        font-family: 'Segoe UI', Arial;
+        user-select: none;
+        cursor: default;
+    }
+    
+    .subsection {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .subsection-header {
+        font-size: 16px;
+        border-bottom: 1px solid #efefef;
+        font-weight: bold;
+    }
+    
+    .subsection-body {
+        padding: 10px 0 0 10px;
+        border-left: 1px solid #efefef;
+    }
+    
+    .button {
+        border: 1px solid #efefef;
+        padding: 10px;
+        background-color: #1a7b1a;
+    }
+    
+    .button:hover {
+        background-color: #1d3e1d;
+    }
+    
+    .flex-end {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .space-between {
+        justify-content: space-between;
+    }
+    
+    .flex-center {
+        align-items: center;
+    }
+    
+    .margin-below {
+        margin-bottom: 20px;
+    }
+    
+    .preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .preview-body {
+        margin-top: 30px;
+    }
+    
+    .green {
+        color: #64cc64;
+    }
+    
+    .popover-background {
+        background-color: rgba(100, 100, 100, .7);
+        position: absolute;
+        background-image: url("egg-shell.png");
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .popover {
+        border: 1px solid #666;
+        background-color: #efefef;
+        padding: 20px;
+    }
+    
+    .flex-grow {
+        flex-grow: 1;
+    }
+    
+    .blinky {
+        animation: blinker 1.5s linear infinite;
+    }
+    
+    @keyframes blinker {
+        49% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        99% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .padme {
+        padding: 10px;
+    }
+    
+    .flexbox {
+        display: flex;
+    }
+    
+    .nav-button .nav-label {
+        font-size: 9px;
+        color: #000;
+    }
+    
+    .nav-button {
+        background-color: black;
+        padding: 5px;
+        flex-grow: 1;
+        color: #888;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .nav-button:hover {
+        background-color: #e6e6e6;
+        color: #000;
+    }
+    
+    .vertical-flexbox {
+        display: flex;
+        flex-direction: column;
+    }

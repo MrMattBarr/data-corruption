@@ -1,0 +1,10 @@
+<template name="menu">
+    <div class="bottom-menu" {{b "if: menuItems.length > 0"}}>
+        {{#each menuItems}}
+        <div class="nav-button" {{b "click: this.action(this.arguments)"}}>
+            <i class="fa {{icon}}"></i>
+            <div class="nav-label">{{this.label}}</div>
+        </div>
+        {{/each}}
+    </div>
+</template>

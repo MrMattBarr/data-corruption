@@ -1,0 +1,15 @@
+.stat-sheet {
+    border: 1px solid #e6e6e6;
+    background-color: rgb(31, 85, 138);
+    margin: 10px;
+    padding: 10px;
+}
+
+.stat {
+    display: flex;
+}
+
+.stat .label {
+    font-weight: bold;
+    margin-right: 10px;
+}

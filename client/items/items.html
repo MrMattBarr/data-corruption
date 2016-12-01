@@ -1,0 +1,14 @@
+<template name="items">
+    <div class="vertical-flexbox">
+        {{#each items}}
+        <div class="item-row" {{b "click: selectItem(this)"}}>
+            <div class="item-icon">
+                <i class="fa fa-cube item-icon"></i>
+            </div>
+            <div class="item-detail">
+                {{this.name}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</template>

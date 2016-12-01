@@ -1,0 +1,37 @@
+.game-body {
+    max-width: 750px;
+    overflow-y: hidden;
+}
+
+.main-display {
+    overflow-y: scroll;
+    padding: 10px;
+    padding-bottom: 50px;
+    padding-top: 90px;
+}
+
+.game-header {
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    height: 70px;
+    width: 100vw;
+    background-color: rgb(31, 85, 138);
+    background-image: url("bright-squares.png");
+}
+
+.bottom-menu {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100vw;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+.bottom-menu i {
+    font-size: 16px;
+    margin: 3px
+}

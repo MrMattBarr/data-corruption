@@ -1,0 +1,13 @@
+<template name="layout">
+    <div class="popover-background" {{b "if: false"}}>
+        <div class="popover">
+        </div>
+    </div>
+    <div class="game-body">
+        {{>header}}
+        <div class="main-display">
+            {{>yield}}
+        </div>
+        {{>menu}}
+    </div>
+</template>

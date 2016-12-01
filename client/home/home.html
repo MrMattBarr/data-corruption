@@ -1,0 +1,22 @@
+<template name="home">
+    <div class="padme">
+        <div class="nav-icons">
+            <div class="icon-nav flex-grow" {{b "click: goToCharacter"}}>
+                <i class="fa fa-id-card"></i>
+                <div>Status</div>
+            </div>
+            <div class="icon-nav items-nav" {{b "click: goToItems"}}>
+                <i class="fa fa-database"></i>
+                <div>Inventory</div>
+            </div>
+            <div class="icon-nav items-nav">
+                <i class="fa fa-eercast"></i>
+                <div>Augments</div>
+            </div>
+            <div class="icon-nav items-nav" {{b "click: goToUpgrades"}}>
+                <i class="fa fa-user-plus"></i>
+                <div>Upgrade</div>
+            </div>
+        </div>
+    </div>
+</template>

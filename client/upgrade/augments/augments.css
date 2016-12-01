@@ -1,0 +1,22 @@
+.augment-row {
+    border: 1px solid #e6e6e6;
+    background-color: rgb(31, 85, 138);
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.augment-row.preview-header > *:not(:last-child) {
+    margin-right: 20px;
+    font-size: 12px;
+}
+
+.augment-row i.fa {
+    font-size: 40px;
+}
+
+.augment-row .label {
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}

@@ -1,0 +1,9 @@
+.leveling-table {}
+
+.leveling-row {
+    display: flex;
+}
+
+.leveling-row > *:not(:last-child) {
+    margin-right: 5px;
+}
