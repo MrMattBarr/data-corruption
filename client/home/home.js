@@ -14,12 +14,18 @@ Template.home.viewmodel({
     goToItems: function() {
         Router.go('items');
     },
-    logIn: function() {
-        var vm = this;
-        Meteor.loginWithPassword('matt@barr.farm', 'Just8characters',
-            function(foo) {
-                console.log(Meteor.user()._id);
-                vm.printMessages(['ready', Meteor.user()._id, "1,341 power Disruptor"]);
-            });
+    facebookLogin: function() {
+        Meteor.loginWithFacebook({
+            loginStyle: "redirect",
+            requestPermissions: ['user_friends', 'public_profile', 'email']
+        }, (err) => {
+            if (err) {
+                this.printMessages([JSON.stringify(err)]);
+                // handle error
+            } else {
+                this.printMessages(["facebook account connected", "10,320 likes ... 2 comments"]);
+                // successful login!
+            }
+        });
     }
 });
