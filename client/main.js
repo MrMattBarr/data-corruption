@@ -4,6 +4,10 @@ import './main.html';
 
 Items = new Mongo.Collection("items");
 
+Meteor.startup(function() {
+    process.env.ROOT_URL = "https://34.193.226.176:3000";
+});
+
 ViewModel.share({
     messages: {
         printMessages: function(messages) {
