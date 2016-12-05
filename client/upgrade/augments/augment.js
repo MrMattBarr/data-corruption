@@ -5,7 +5,7 @@ Template.augmentUpgrades.viewmodel({
             [{
                 label: "Upgrades Page",
                 icon: "fa-bars",
-                action: this.goUpgrades
+                route: 'upgrades'
             }, {
                 label: "Help",
                 icon: "fa-question",
@@ -13,9 +13,6 @@ Template.augmentUpgrades.viewmodel({
             }]);
         this.headerText("Augments");
         this.printMessages(["list AUGMENTS"]);
-    },
-    goUpgrades: function() {
-        Router.go('upgrade');
     },
     help: function() {
         alert('HELP!');

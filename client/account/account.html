@@ -1,0 +1,20 @@
+<template name="account">
+    <div class="nav-icons">
+        <div class="icon-nav items-nav" {{b "click: logIn(1), if: !isLoggedIn"}}>
+            <i class="fa fa-sign-in"></i>
+            <div>Matt</div>
+        </div>
+        <div class="icon-nav items-nav" {{b "click: logIn(2), if: !isLoggedIn"}}>
+            <i class="fa fa-sign-in"></i>
+            <div>Jenisa</div>
+        </div>
+        <div class="icon-nav items-nav" {{b "click: createAccount, if: !isLoggedIn"}}>
+            <i class="fa fa-user-plus"></i>
+            <div>Create</div>
+        </div>
+        <div class="icon-nav items-nav" {{b "click: logOut, if: isLoggedIn"}}>
+            <i class="fa fa-sign-out"></i>
+            <div>Log Out</div>
+        </div>
+    </div>
+</template>

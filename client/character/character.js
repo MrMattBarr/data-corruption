@@ -11,10 +11,7 @@ Template.character.viewmodel({
             [{
                 label: "Go Home",
                 icon: "fa-bars",
-                action: this.goHome
+                target: 'home'
             }]);
-    },
-    goHome: function() {
-        Router.go('home');
     }
 })

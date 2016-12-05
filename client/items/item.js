@@ -14,7 +14,7 @@ Template.item.viewmodel({
                 label: "Delete Item",
                 icon: "fa-trash",
                 action: this.deleteItem,
-                arguments: this._id
+                arguments: this._id.value
             }]);
         this.headerText(this.name.value);
         var msgs = [

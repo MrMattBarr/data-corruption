@@ -4,6 +4,14 @@ Template.menu.viewmodel({
 
 ViewModel.share({
     menu: {
-        menuItems: []
+        menuItems: [],
+        processItem: function(item) {
+            console.log(Meteor.user());
+            if (!!item.route) {
+                Router.go(item.route);
+            } else {
+                item.action(item.arguments);
+            }
+        }
     }
 });
