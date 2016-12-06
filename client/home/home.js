@@ -1,8 +1,13 @@
 Template.home.viewmodel({
     share: ['messages', 'menu'],
     onRendered: function() {
-        if (Meteor.user().emails[0].address) {
-            this.headerText(Meteor.user().emails[0].address);
+        if (Meteor.user()) {
+            if (Meteor.user().username) {
+                this.headerText(Meteor.user().username);
+
+            } else {
+                this.headerText(Meteor.user().emails[0].address);
+            }
         } else {
             this.headerText("Matt Barr");
         }

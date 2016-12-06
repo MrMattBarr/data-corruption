@@ -18,6 +18,10 @@
         align-items: flex-start;
     }
     
+    .spaced-children > *:not(:last-child) {
+        margin-right: 30px;
+    }
+    
     .subsection-header {
         font-size: 16px;
         border-bottom: 1px solid #efefef;
@@ -32,10 +36,20 @@
     .button {
         border: 1px solid #efefef;
         padding: 10px;
+        background-color: rgb(25, 135, 235);
+    }
+    
+    .button.big-button {
+        padding: 20px 30px;
+        flex-grow: 1;
+        text-align: center;
+    }
+    
+    .button.green-button {
         background-color: #1a7b1a;
     }
     
-    .button:hover {
+    .button.green-button:hover {
         background-color: #1d3e1d;
     }
     

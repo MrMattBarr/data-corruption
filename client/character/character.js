@@ -11,7 +11,7 @@ Template.character.viewmodel({
             [{
                 label: "Go Home",
                 icon: "fa-bars",
-                target: 'home'
+                route: 'home'
             }]);
     }
 })

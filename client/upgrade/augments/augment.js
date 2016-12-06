@@ -5,7 +5,7 @@ Template.augmentUpgrades.viewmodel({
             [{
                 label: "Upgrades Page",
                 icon: "fa-bars",
-                route: 'upgrades'
+                route: 'upgrade'
             }, {
                 label: "Help",
                 icon: "fa-question",

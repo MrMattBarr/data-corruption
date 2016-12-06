@@ -4,41 +4,48 @@ Template.account.viewmodel({
     password: "password",
     isLoggedIn: false,
     onRendered: function() {
-        this.menuItems(
-            [{
-                label: "Home",
-                icon: "fa-bars",
-                route: 'home'
-            }]);
         this.headerText("Account Settings");
         this.printMessages(["user.account"]);
+        this.checkLogIn(this);
     },
-    createAccount: function() {
-        Accounts.createUser({
-            email: "jenisa@barr.farm",
-            password: "password",
-            username: "Jenisa"
-        });
+    checkLogIn: function(vm) {
+        if (!vm) vm = this;
+        vm.isLoggedIn(!!Meteor.user());
+        if (vm.isLoggedIn.value) {
+            vm.menuItems(
+                [{
+                    label: "Home",
+                    icon: "fa-bars",
+                    route: 'home'
+                }, {
+                    label: "Edit",
+                    icon: "fa-edit",
+                    route: 'home'
+                }, {
+                    label: "Sign Out",
+                    icon: "fa-sign-out",
+                    action: vm.logOut,
+                    arguments: vm
+                }]);
+        } else {
+            vm.menuItems(
+                [{
+                    label: "Home",
+                    icon: "fa-bars",
+                    route: 'home'
+                }]);
+        }
     },
-    logOut: function() {
-        var vm = this;
+    logOut: function(vm) {
         Meteor.logout(function() {
-            vm.isLoggedIn(!!Meteor.user());
+            vm.checkLogIn();
         });
     },
     logIn: function(character) {
         var vm = this;
-        if (character == 2) {
-            vm.username("jenisa@barr.farm");
-            vm.password("password");
-        } else {
-
-            vm.username("matt@barr.farm");
-            vm.password("password");
-        }
         Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
             vm.printMessages(['account accessed: ' + Meteor.user().emails[0].address]);
-            vm.isLoggedIn(!!Meteor.user());
+            vm.checkLogIn();
         });
     }
 });
