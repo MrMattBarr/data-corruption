@@ -1,37 +1,24 @@
 <template name="account">
-    <div class="login-form" {{b "if: !isLoggedIn "}}>
-        <div>
-            <input type="text " {{b "value: username "}} />
-            <div class="account-input-label ">Email</div>
+    <div class="stat-sheet margin-below">
+        <div class="stat">
+            <div class="label">Brawn:</div>
+            <div class="value">25</div>
         </div>
-        <div>
-            <input type="password " {{b "value: password "}} />
-            <div class="account-input-label ">Password</div>
+        <div class="stat">
+            <div class="label">Charm:</div>
+            <div class="value">12</div>
         </div>
-        <div class="button " {{b "click: logIn() "}}>Log In</div>
-    </div>
-    <div {{b "if: isLoggedIn"}}>
-        <div class="stat-sheet margin-below">
-            <div class="stat">
-                <div class="label">Brawn:</div>
-                <div class="value">25</div>
-            </div>
-            <div class="stat">
-                <div class="label">Charm:</div>
-                <div class="value">12</div>
-            </div>
-            <div class="stat">
-                <div class="label">Talent:</div>
-                <div class="value">19</div>
-            </div>
-            <div class="stat">
-                <div class="label">Speed:</div>
-                <div class="value">12</div>
-            </div>
-            <div class="stat">
-                <div class="label">Savvy:</div>
-                <div class="value">24</div>
-            </div>
+        <div class="stat">
+            <div class="label">Talent:</div>
+            <div class="value">19</div>
+        </div>
+        <div class="stat">
+            <div class="label">Speed:</div>
+            <div class="value">12</div>
+        </div>
+        <div class="stat">
+            <div class="label">Savvy:</div>
+            <div class="value">24</div>
         </div>
     </div>
 </template>

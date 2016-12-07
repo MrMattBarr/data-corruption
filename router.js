@@ -15,6 +15,9 @@ Router.map(function() {
     this.route('upgrade', {
         path: '/upgrade'
     });
+    this.route('login', {
+        path: '/login'
+    });
     this.route('account', {
         path: '/account'
     });

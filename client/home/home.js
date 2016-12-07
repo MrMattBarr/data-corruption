@@ -8,11 +8,11 @@ Template.home.viewmodel({
             } else {
                 this.headerText(Meteor.user().emails[0].address);
             }
+            this.menuItems([]);
+            this.printMessages(["HOME", "1,341 power Disruptor"]);
         } else {
-            this.headerText("Matt Barr");
+            Router.go('account');
         }
-        this.menuItems([]);
-        this.printMessages(["HOME", "1,341 power Disruptor"]);
     },
     goToCharacter: function() {
         Router.go('character');

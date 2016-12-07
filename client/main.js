@@ -12,9 +12,12 @@ ViewModel.share({
     messages: {
         printMessages: function(messages) {
             this.message("");
-            this.typeNextLetter(messages, 70, this);
+            this.typeNextLetter(messages, new Date(), 70, this);
         },
-        typeNextLetter: function(messages, maxTimer, vm) {
+        typeNextLetter: function(messages, messageReceived, maxTimer, vm) {
+            if (messageReceived > vm.currentMessageReceived.value) {
+                vm.currentMessageReceived(messageReceived);
+            }
             var nextTimer = Math.floor(Math.random() * maxTimer);
             var clear = false;
             if (vm.message.value.length == 0) {
@@ -29,15 +32,20 @@ ViewModel.share({
             }
             setTimeout(
                 function() {
+
+                    if (messageReceived < vm.currentMessageReceived.value) {
+                        return;
+                    }
                     if (clear) {
                         vm.message('');
                     }
                     vm.message(vm.message.value + messages[0][0]);
                     messages[0] = messages[0].slice(1, messages[0].length);
-                    vm.typeNextLetter(messages, maxTimer, vm);
+                    vm.typeNextLetter(messages, messageReceived, maxTimer, vm);
                 }, nextTimer);
 
         },
+        currentMessageReceived: new Date(),
         message: "Level 1031 Director",
         headerText: "Matt Barr"
     }
