@@ -1,0 +1,8 @@
+<template name="weaponize">
+    <div class="vertical-flexbox vertically-spaced-children">
+        <div class="prompt">{{prompt}}</div>
+        {{#each options}}
+        <div class="button" {{b "click: setFieldValueForItem(currentField(), this.value)"}}>{{display}}</div>
+        {{/each}}
+    </div>
+</template>

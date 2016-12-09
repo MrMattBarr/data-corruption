@@ -18,8 +18,16 @@
         align-items: flex-start;
     }
     
+    .prompt {
+        font-size: 24px;
+    }
+    
     .spaced-children > *:not(:last-child) {
         margin-right: 30px;
+    }
+    
+    .vertically-spaced-children >:not(:last-child) {
+        margin-bottom: 20px;
     }
     
     .subsection-header {
@@ -34,8 +42,11 @@
     }
     
     .button {
+        text-align: center;
         border: 1px solid #efefef;
-        padding: 10px;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
         background-color: rgb(25, 135, 235);
     }
     

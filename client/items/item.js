@@ -9,7 +9,7 @@ Template.item.viewmodel({
             [{
                 label: "Inventory",
                 icon: "fa-bars",
-                action: this.goToInventory
+                route: 'items'
             }, {
                 label: "Delete Item",
                 icon: "fa-trash",
@@ -22,18 +22,16 @@ Template.item.viewmodel({
         ];
         this.printMessages(msgs);
     },
-    goToInventory: function() {
-        Router.go('items');
-    },
     deleteItem: function(itemId) {
         Items.remove(itemId);
         Router.go('items');
     },
-    changeName: function() {
-        Items.update(this._id(), {
-            $set: {
-                name: "Chipped Crowbar"
-            }
+    isWeaponized: function() {
+        return Weaponizer.isWeaponized(this);
+    },
+    weaponize: function() {
+        Router.go('weaponize', {
+            _id: this._id
         });
     }
 });

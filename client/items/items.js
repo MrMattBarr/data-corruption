@@ -18,7 +18,10 @@ Template.items.viewmodel({
         }
     },
     items: function() {
-        return Items.find({ user: Meteor.user()._id });
+        if (Meteor.user()) {
+            return Items.find({ user: Meteor.user()._id });
+        }
+        return [];
     },
     selectItem: function(item) {
         Router.go('item', {

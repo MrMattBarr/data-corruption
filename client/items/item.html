@@ -1,16 +1,26 @@
 <template name="item">
     <div class="item-sheet" {{b "click: changeName"}}>
-        <div class="stat">
-            <div class="label">Quantity:</div>
-            <div class="value">1</div>
+        <div class="stat" {{b "if: sharpness"}}>
+            <div class="label">Sharpness:</div>
+            <div class="value">{{sharpness}}</div>
         </div>
-        <div class="stat">
+        <div class="stat" {{b "if: weight"}}>
+            <div class="label">Weight:</div>
+            <div class="value">{{weight}}</div>
+        </div>
+        <div class="stat" {{b "if: hardness"}}>
+            <div class="label">hardness:</div>
+            <div class="value">{{hardness}}</div>
+        </div>
+        <div class="stat" {{b "if: durability"}}>
             <div class="label">Durability:</div>
-            <div class="value">12/15</div>
+            <div class="value">{{durability}}</div>
         </div>
-        <div class="stat">
-            <div class="label">Attributes:</div>
-            <div class="value">Sharp, Weapon, Stolen</div>
+        <div class="stat" {{b "if: danger"}}>
+            <div class="label">Danger:</div>
+            <div class="value">{{danger}}</div>
         </div>
     </div>
+    <div class="button" {{b "click: weaponize(), unless: isWeaponized()"}}>Weaponize</div>
+    <div class="button" {{b "if: isWeaponized()"}}>Use As A Weapon</div>
 </template>

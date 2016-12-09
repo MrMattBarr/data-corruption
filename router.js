@@ -34,4 +34,14 @@ Router.map(function() {
             return item;
         }
     });
+    this.route('/items/:_id/weaponize', {
+        name: 'weaponize',
+        template: 'weaponize',
+        data: function() {
+            var item = Items.findOne({
+                _id: this.params._id
+            });
+            return item;
+        }
+    });
 });

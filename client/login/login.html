@@ -1,11 +1,11 @@
 <template name="login">
     <div class="login-form" {{b "if: !isLoggedIn "}}>
         <div>
-            <input type="text " {{b "value: username "}} />
+            <input type="text" name="username" {{b "value: username "}} />
             <div class="account-input-label ">Email</div>
         </div>
         <div>
-            <input type="password " {{b "value: password "}} />
+            <input type="password" name="password" {{b "value: password "}} />
             <div class="account-input-label ">Password</div>
         </div>
         <div class="button " {{b "click: logIn() "}}>Log In</div>

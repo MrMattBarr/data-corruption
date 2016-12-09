@@ -32,7 +32,6 @@ ViewModel.share({
             }
             setTimeout(
                 function() {
-
                     if (messageReceived < vm.currentMessageReceived.value) {
                         return;
                     }
@@ -46,7 +45,7 @@ ViewModel.share({
 
         },
         currentMessageReceived: new Date(),
-        message: "Level 1031 Director",
-        headerText: "Matt Barr"
+        message: "",
+        headerText: ""
     }
-})
+});
