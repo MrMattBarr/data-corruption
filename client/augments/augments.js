@@ -1,11 +1,11 @@
-Template.augmentUpgrades.viewmodel({
+Template.augments.viewmodel({
     share: ['messages', 'menu'],
     onRendered: function() {
         this.menuItems(
             [{
-                label: "Upgrades Page",
+                label: "Home",
                 icon: "fa-bars",
-                route: 'upgrade'
+                route: 'home'
             }, {
                 label: "Help",
                 icon: "fa-question",
@@ -14,7 +14,12 @@ Template.augmentUpgrades.viewmodel({
         this.headerText("Augments");
         this.printMessages(["list AUGMENTS"]);
     },
-    help: function() {
-        alert('HELP!');
+    help: function() {},
+    augments: function() {
+        var augmentList = [];
+        Augments.index.forEach(function(key) {
+            augmentList.push(Augments.augments[key]);
+        });
+        return augmentList;
     }
 });

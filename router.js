@@ -12,8 +12,8 @@ Router.map(function() {
     this.route('character', {
         path: '/character'
     });
-    this.route('upgrade', {
-        path: '/upgrade'
+    this.route('augments', {
+        path: '/augments'
     });
     this.route('login', {
         path: '/login'

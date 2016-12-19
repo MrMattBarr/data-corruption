@@ -1,0 +1,46 @@
+<template name="augments">
+    {{#each augments}} {{>augmentRow}} {{/each}}
+</template>
+<template name="augmentRow">
+    <div class="augment-row">
+        <div class="preview-header" {{b "toggle: showDetail"}}>
+            <div class="vertical-flexbox">
+                <div class="label">{{name}}</div>
+                <div>{{tagline}}</div>
+            </div>
+            <i class="fa fa-bolt"></i>
+        </div>
+        <div class="preview-body" {{b "if:showDetail"}}>
+            <div class="subsection">
+                <div class="subsection-header">INCREMENTAL POWER</div>
+                <div class="subsection-body">
+                    <div>
+                        <strong>Range:</strong>
+                        <span>[15 +</span>
+                        <span class="green"> 5 times this augment's rank</span>
+                        <span>] feet</span>
+                    </div>
+                    <div>
+                        <strong>Power:</strong>
+                        <span>Gain</span>
+                        <span class="green"> one third this power's rank</span>
+                        <span> in checks for detecting surveillance systems that are resisting being found</span>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-header">BREAK POINTS</div>
+                <div class="subsection-body">
+                    <div class="levelingTable">
+                        {{#each breakPoints}}
+                        <div class="leveling-row earned">
+                            <div>{{level}}:</div>
+                            <div>{{description}}</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -25,6 +25,17 @@ Template.home.viewmodel({
     },
     goToAccount: function() {
         Router.go('account');
+    },
+    goToAugments: function() {
+        Router.go('augments');
+    },
+    createCampaign: function() {
+
+        Campaigns.insert({
+            name: 'Mamma Jamma Slampaign',
+            createdAt: new Date(),
+            host: Meteor.user()._id
+        });
     }
 
     // Meteor.loginWithFacebook({

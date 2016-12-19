@@ -9,17 +9,17 @@
                 <i class="fa fa-database"></i>
                 <div>Inventory</div>
             </div>
-            <div class="icon-nav items-nav">
+            <div class="icon-nav items-nav" {{b "click: goToAugments"}}>
                 <i class="fa fa-eercast"></i>
                 <div>Augments</div>
             </div>
-            <div class="icon-nav items-nav" {{b "click: goToUpgrades"}}>
-                <i class="fa fa-user-plus"></i>
-                <div>Upgrade</div>
-            </div>
-            <div class="icon-nav items-nav" {{b "click: goToAccount"}}>
+            <div class="icon-nav flex-grow" {{b "click: goToAccount"}}>
                 <i class="fa fa-cog"></i>
                 <div>Account</div>
+            </div>
+            <div class="icon-nav flex-grow" {{b "click: createCampaign"}}>
+                <i class="fa fa-cog"></i>
+                <div>New Game</div>
             </div>
         </div>
     </div>
