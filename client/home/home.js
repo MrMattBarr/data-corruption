@@ -1,10 +1,10 @@
 Template.home.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['character', 'messages', 'menu'],
     onRendered: function() {
         if (Meteor.user()) {
-            if (Meteor.user().username) {
-                this.headerText(Meteor.user().username);
-
+            var character = this.character();
+            if (character) {
+                this.headerText(this.character().name);
             } else {
                 this.headerText(Meteor.user().emails[0].address);
             }
@@ -29,13 +29,8 @@ Template.home.viewmodel({
     goToAugments: function() {
         Router.go('augments');
     },
-    createCampaign: function() {
-
-        Campaigns.insert({
-            name: 'Mamma Jamma Slampaign',
-            createdAt: new Date(),
-            host: Meteor.user()._id
-        });
+    goToCampaign: function() {
+        Router.go('campaign');
     }
 
     // Meteor.loginWithFacebook({

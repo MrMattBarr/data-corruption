@@ -15,3 +15,19 @@ Template.character.viewmodel({
             }]);
     }
 })
+
+
+ViewModel.share({
+    character: {
+        character: function() {
+            if (Meteor.user()) {
+                var account = Accounts.findOne({ user: Meteor.user()._id });
+                if (account) {
+                    var character = Characters.findOne({ _id: account.currentCharacter });
+                    return character;
+                }
+            }
+            return null;
+        }
+    }
+});

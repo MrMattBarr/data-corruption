@@ -21,6 +21,9 @@ Router.map(function() {
     this.route('account', {
         path: '/account'
     });
+    this.route('campaign', {
+        path: '/campaign'
+    });
     this.route('augmentUpgrades', {
         path: '/upgrade/augments'
     });

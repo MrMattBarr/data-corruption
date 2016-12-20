@@ -1,25 +1,26 @@
 Template.items.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['character', 'messages', 'menu'],
     addItem: function(vm) {
         var adjectives = ["Big", "Red", "Ugly", "Ancient", "Strong"];
         var nouns = ["Dragon", "Crowbar", "Sandwich", "Tome", "Bricks"];
         var adj = adjectives[Math.floor(Math.random() * adjectives.length)];
         var noun = nouns[Math.floor(Math.random() * nouns.length)];
         var itemName = adj + " " + noun;
-        if (Meteor.user()._id) {
-
+        var character = vm.character();
+        if (character) {
             Items.insert({
                 name: itemName,
                 createdAt: new Date(),
-                user: Meteor.user()._id
+                character: character._id
             });
         } else {
             vm.printMessage["no user logged in"];
         }
     },
     items: function() {
-        if (Meteor.user()) {
-            return Items.find({ user: Meteor.user()._id });
+        var character = this.character();
+        if (character) {
+            return Items.find({ character: character._id });
         }
         return [];
     },
@@ -38,12 +39,9 @@ Template.items.viewmodel({
                 label: "Add Item",
                 icon: "fa-plus",
                 action: this.addItem,
-                argument: this
+                arguments: this
             }]);
         this.headerText("Inventory");
         this.printMessages(["list ITEMS"]);
-    },
-    goHome: function() {
-        Router.go('home');
-    },
+    }
 });

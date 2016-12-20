@@ -12,6 +12,12 @@ Template.login.viewmodel({
         if (!vm) vm = this;
         vm.isLoggedIn(!!Meteor.user());
         if (vm.isLoggedIn.value) {
+            var Account = Accounts.findOne({ user: Meteor.user()._id });
+            if (!Account) Account = Accounts.insert({
+                name: "Mr. Booply",
+                createdAt: new Date(),
+                user: Meteor.user()._id
+            });
             Router.go('home');
         } else {
             vm.menuItems([]);

@@ -21,4 +21,14 @@
             <div class="value">24</div>
         </div>
     </div>
+    {{#each characters}}
+    <div class="item-row" {{b "click: selectCharacter(this)"}}>
+        <div class="item-icon">
+            <i class="fa fa-user item-icon"></i>
+        </div>
+        <div class="item-detail">
+            {{this.name}}
+        </div>
+    </div>
+    {{/each}}
 </template>
