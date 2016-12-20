@@ -1,0 +1,7 @@
+.character-summary:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.character-summary .label {
+    font-weight: bold;
+}

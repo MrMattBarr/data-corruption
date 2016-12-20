@@ -22,7 +22,20 @@ Router.map(function() {
         path: '/account'
     });
     this.route('campaign', {
-        path: '/campaign'
+        name: 'campaign',
+        template: 'campaign',
+        data: function() {
+            if (!Meteor.user()) return null;
+            var account = Accounts.findOne({ user: Meteor.userId() });
+            if (!account) return null;
+            var character = Characters.findOne({ _id: account.currentCharacter });
+            if (!character) return null;
+            var campaign = Campaigns.findOne({ _id: character.campaign });
+            return campaign;
+        }
+    });
+    this.route('campaigns', {
+        path: '/campaigns'
     });
     this.route('augmentUpgrades', {
         path: '/upgrade/augments'

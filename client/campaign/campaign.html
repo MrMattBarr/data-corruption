@@ -1,15 +1,10 @@
 <template name="campaign">
-    <div class="vertical-flexbox">
-        {{#each campaigns}}
-        <div class="item-row" {{b "click: joinCampaign(this)"}}>
-            <div class="item-icon">
-                <i class="fa fa-users item-icon"></i>
-            </div>
-            <div class="item-detail">
-                {{this.name}}
-            </div>
+    <div class="stat-sheet">
+        {{#each members}}
+        <div class="character-summary">
+            <div class="label">{{this.name}}</div>
+            <div class="value">Character description would go here</div>
         </div>
         {{/each}}
-        <div class="button " {{b "click: createCampaign() "}}>New Campaign</div>
     </div>
 </template>

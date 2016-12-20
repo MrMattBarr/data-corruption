@@ -7,33 +7,14 @@ Template.campaign.viewmodel({
                 icon: "fa-bars",
                 route: 'home'
             }, {
-                label: "New Campaign",
-                icon: "fa-plus",
-                action: this.createCampaign,
-                argument: this
+                label: "Other Campaigns",
+                icon: "fa-users",
+                route: 'campaigns'
             }]);
-        this.headerText("Campaigns");
-        var character = this.character();
-        this.printMessages(["member of: " + character.campaign]);
+        this.headerText(this.name());
+        this.printMessages(['Very exciting campaign']);
     },
-    campaign: function() {
-        if (Meteor.user().campaign) {
-            return Campaigns.findOne({ user: Meteor.user().campaign });
-        }
-        return null;
-    },
-    campaigns: function() {
-        return Campaigns.find({});
-    },
-    createCampaign: function(vm) {
-        Campaigns.insert({
-            name: 'Mamma Jamma Slampaign',
-            createdAt: new Date(),
-            user: Meteor.user()._id
-        });
-    },
-    joinCampaign: function(campaign) {
-        var character = this.character();
-        Characters.update(character._id, { $set: { campaign: campaign._id } });
+    members: function() {
+        return Characters.find({ campaign: this._id.value });
     }
 });
