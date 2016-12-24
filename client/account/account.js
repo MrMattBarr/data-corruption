@@ -33,12 +33,24 @@ Template.account.viewmodel({
         }
         return []
     },
+    currentCharacter: function() {
+        var account = Accounts.findOne({ user: Meteor.user()._id });
+        return Characters.findOne({ _id: account.currentCharacter });
+    },
+    isCurrentCharacter: function(character) {
+        var account = Accounts.findOne({ user: Meteor.user()._id });
+        return account.currentCharacter == character._id;
+    },
     selectCharacter: function(character) {
         var id = this.account()._id;
         if (id && character) {
             Accounts.update(id, { $set: { currentCharacter: character._id } });
             Router.go('home');
         }
+    },
+    deleteCurrentCharacter: function() {
+        Characters.remove(this.currentCharacter()._id);
+        Router.go('home');
     },
     newCharacter: function(vm) {
         var firstNames = ["Alan", "Bea", "Carla", "David", "Emily"];

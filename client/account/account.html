@@ -22,7 +22,7 @@
         </div>
     </div>
     {{#each characters}}
-    <div class="item-row" {{b "click: selectCharacter(this)"}}>
+    <div class="item-row" {{b "click: selectCharacter(this), if: !isCurrentCharacter(this)"}}>
         <div class="item-icon">
             <i class="fa fa-user item-icon"></i>
         </div>
@@ -31,4 +31,6 @@
         </div>
     </div>
     {{/each}}
+    <div class="margin-below"></div>
+    <div class="button " {{b "click: deleteCurrentCharacter()" }}> Delete current character</div>
 </template>
