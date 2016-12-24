@@ -25,11 +25,11 @@ Template.campaign.viewmodel({
         this.printHeaderMessages(['Very exciting campaign']);
     },
     currentPlayer: function() {
-        var account = Accounts.findOne({ _id: this.master.value });
+        var account = Accounts.findOne({ user: Meteor.user()._id });
         return Characters.findOne({ _id: account.currentCharacter });
     },
     isCurrentPlayer: function(member) {
-        var account = Accounts.findOne({ _id: this.master.value });
+        var account = Accounts.findOne({ user: Meteor.user()._id });
         return account.currentCharacter == member._id;
     },
     deleteCampaign: function(campaignId) {
