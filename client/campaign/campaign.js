@@ -1,6 +1,11 @@
 Template.campaign.viewmodel({
-    share: ['character', 'messages', 'menu'],
+    share: ['character', 'header', 'menu', 'messages'],
     onRendered: function() {
+        if (!this._id) {
+            Router.go('campaigns');
+            console.warn('Had to leave page due to no this._id');
+            return;
+        }
         this.menuItems(
             [{
                 label: "Go Home",
@@ -10,11 +15,40 @@ Template.campaign.viewmodel({
                 label: "Other Campaigns",
                 icon: "fa-users",
                 route: 'campaigns'
+            }, {
+                label: "Delete Item",
+                icon: "fa-trash",
+                action: this.deleteCampaign,
+                arguments: this._id.value
             }]);
         this.headerText(this.name());
-        this.printMessages(['Very exciting campaign']);
+        this.printHeaderMessages(['Very exciting campaign']);
+    },
+    currentPlayer: function() {
+        var account = Accounts.findOne({ _id: this.master.value });
+        return Characters.findOne({ _id: account.currentCharacter });
+    },
+    isCurrentPlayer: function(member) {
+        var account = Accounts.findOne({ _id: this.master.value });
+        return account.currentCharacter == member._id;
+    },
+    deleteCampaign: function(campaignId) {
+        Campaigns.remove(campaignId);
+        Router.go('campaigns');
+    },
+    sendPlayerMessage: function(recipient) {
+        var message = {
+            recipient: recipient._id,
+            text: "I sent you a message!"
+        };
+        this.sendMessage(message);
     },
     members: function() {
+        if (!this._id) return;
         return Characters.find({ campaign: this._id.value });
+    },
+    dm: function() {
+        var account = Accounts.findOne({ _id: this.master.value });
+        return account;
     }
 });

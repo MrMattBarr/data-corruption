@@ -1,9 +1,19 @@
 <template name="campaign">
     <div class="stat-sheet">
+        <div class="character-summary dungeon-master">
+            <div class="label">Dungeonmaster</div>
+            <div class="value">{{dm.name}}</div>
+        </div>
+        <div class="character-summary current-player">
+            <div class="label">{{currentPlayer.name}}</div>
+            <div class="value">This one's you!</div>
+        </div>
         {{#each members}}
-        <div class="character-summary">
+        <div class="character-summary" {{b "if: !isCurrentPlayer(this)" }}>
             <div class="label">{{this.name}}</div>
-            <div class="value">Character description would go here</div>
+            <div class="value">
+                <i class="fa fa-envelope touch-icon" {{b "click: sendPlayerMessage(this)"}}></i>
+            </div>
         </div>
         {{/each}}
     </div>

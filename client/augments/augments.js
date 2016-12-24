@@ -1,5 +1,5 @@
 Template.augments.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['header', 'menu'],
     onRendered: function() {
         this.menuItems(
             [{
@@ -12,7 +12,7 @@ Template.augments.viewmodel({
                 action: this.help
             }]);
         this.headerText("Augments");
-        this.printMessages(["list AUGMENTS"]);
+        this.printHeaderMessages(["list AUGMENTS"]);
     },
     help: function() {},
     augments: function() {

@@ -1,9 +1,9 @@
 Template.account.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['header', 'menu'],
     onRendered: function() {
         var vm = this;
         vm.headerText("Account Settings");
-        vm.printMessages(["user.account"]);
+        vm.printHeaderMessages(["user.account"]);
         if (!Meteor.user()) {
             Router.go("login");
         }

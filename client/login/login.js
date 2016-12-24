@@ -1,11 +1,11 @@
 Template.login.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['header', 'menu'],
     username: "",
     password: "",
     isLoggedIn: false,
     onRendered: function() {
         this.headerText("DATA: Corruption");
-        this.printMessages(["awaiting authentication"]);
+        this.printHeaderMessages(["awaiting authentication"]);
         this.checkLogIn(this);
     },
     checkLogIn: function(vm) {
@@ -26,14 +26,14 @@ Template.login.viewmodel({
     logIn: function() {
         var vm = this;
         Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
-            vm.printMessages(['account accessed: ' + Meteor.user().emails[0].address]);
+            vm.printHeaderMessages(['account accessed: ' + Meteor.user().emails[0].address]);
             vm.checkLogIn();
         });
     },
     createAccount: function() {
         var vm = this;
         Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
-            vm.printMessages(['account accessed: ' + Meteor.user().emails[0].address]);
+            vm.printHeaderMessages(['account accessed: ' + Meteor.user().emails[0].address]);
             vm.checkLogIn();
         });
     }

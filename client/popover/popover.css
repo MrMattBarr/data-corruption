@@ -1,0 +1,27 @@
+.popover-backdrop {
+    z-index: 3;
+    background-color: rgba(100, 100, 100, .6);
+    position: absolute;
+    background-image: url("egg-shell.png");
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.popover {
+    border: 1px solid #666;
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.popover .message {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.popover .buttom {
+    content: "Foo Bar";
+}

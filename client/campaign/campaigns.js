@@ -1,5 +1,5 @@
 Template.campaigns.viewmodel({
-    share: ['character', 'messages', 'menu'],
+    share: ['character', 'header', 'menu'],
     onRendered: function() {
         this.menuItems(
             [{
@@ -10,7 +10,7 @@ Template.campaigns.viewmodel({
                 label: "New Campaign",
                 icon: "fa-plus",
                 action: this.createCampaign,
-                argument: this
+                arguments: this
             }]);
         this.headerText("Campaigns");
     },
@@ -24,10 +24,15 @@ Template.campaigns.viewmodel({
         return Campaigns.find({});
     },
     createCampaign: function(vm) {
+        var adjectives = ["The Last", "Evil", "My Fluffy", "The Worst", "Wrath of the"];
+        var nouns = ["Dragon", "Emperor", "Murderer", "Puppy", "Cafe"];
+        var adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+        var noun = nouns[Math.floor(Math.random() * nouns.length)];
+        var campaignName = adj + " " + noun;
         Campaigns.insert({
-            name: 'Dark Times',
+            name: campaignName,
             createdAt: new Date(),
-            user: Meteor.user()._id
+            master: vm.account()._id
         });
     },
     joinCampaign: function(campaign) {

@@ -123,7 +123,7 @@ Weaponizer = {
 }
 
 Template.weaponize.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['header', 'menu'],
     onRendered: function() {
         var vm = this;
         if (!vm.name) {
@@ -140,7 +140,7 @@ Template.weaponize.viewmodel({
         var msgs = [
             "weaponizing item..."
         ];
-        vm.printMessages(msgs);
+        vm.printHeaderMessages(msgs);
     },
     setFieldValueForItem: function(field, value) {
         if (field == 'sharpness') Items.update(this._id(), { $set: { sharpness: value } });

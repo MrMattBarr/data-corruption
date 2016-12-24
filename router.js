@@ -44,9 +44,7 @@ Router.map(function() {
         name: 'item',
         template: 'item',
         data: function() {
-            var item = Items.findOne({
-                _id: this.params._id
-            });
+            var item = Items.findOne({ _id: this.params._id });
             return item;
         }
     });

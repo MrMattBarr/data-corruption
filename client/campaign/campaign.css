@@ -5,3 +5,11 @@
 .character-summary .label {
     font-weight: bold;
 }
+
+.current-player {
+    color: #8cff8c;
+}
+
+.dungeon-master {
+    color: #65e0f7;
+}

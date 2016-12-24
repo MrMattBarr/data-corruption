@@ -1,5 +1,5 @@
 Template.items.viewmodel({
-    share: ['character', 'messages', 'menu'],
+    share: ['character', 'header', 'menu'],
     addItem: function(vm) {
         var adjectives = ["Big", "Red", "Ugly", "Ancient", "Strong"];
         var nouns = ["Dragon", "Crowbar", "Sandwich", "Tome", "Bricks"];
@@ -42,6 +42,6 @@ Template.items.viewmodel({
                 arguments: this
             }]);
         this.headerText("Inventory");
-        this.printMessages(["list ITEMS"]);
+        this.printHeaderMessages(["list ITEMS"]);
     }
 });

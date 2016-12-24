@@ -1,0 +1,10 @@
+<template name="popover">
+    <div class="popover-backdrop" {{b "if: shouldShowPopover"}}>
+        <div class="popover">
+            <div class="message">
+                {{currentMessage.text}}
+            </div>
+            <div class="button " {{b "click: dismissMessage() "}}>Dismiss</div>
+        </div>
+    </div>
+</template>

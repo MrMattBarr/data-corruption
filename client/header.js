@@ -1,10 +1,8 @@
 Template.header.viewmodel({
-    share: 'messages'
-});
-
-ViewModel.share({
-    messages: {
-        printMessages: function(messages) {
+    share: 'header'
+});ViewModel.share({
+    header: {
+        printHeaderMessages: function(messages) {
             this.message("");
             this.typeNextLetter(messages, new Date(), 70, this);
         },
@@ -43,3 +41,4 @@ ViewModel.share({
         headerText: ""
     }
 });
+

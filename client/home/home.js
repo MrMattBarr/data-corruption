@@ -1,5 +1,5 @@
 Template.home.viewmodel({
-    share: ['character', 'messages', 'menu'],
+    share: ['character', 'header', 'menu'],
     onRendered: function() {
         if (Meteor.user()) {
             var character = this.character();
@@ -9,7 +9,7 @@ Template.home.viewmodel({
                 this.headerText(Meteor.user().emails[0].address);
             }
             this.menuItems([]);
-            this.printMessages(["HOME", "1,341 power Disruptor"]);
+            this.printHeaderMessages(["HOME", "1,341 power Disruptor"]);
         } else {
             Router.go('account');
         }
@@ -38,10 +38,10 @@ Template.home.viewmodel({
     //     requestPermissions: ['user_friends', 'public_profile', 'email']
     // }, (err) => {
     //     if (err) {
-    //         this.printMessages([JSON.stringify(err)]);
+    //         this.printHeaderMessages([JSON.stringify(err)]);
     //         // handle error
     //     } else {
-    //         this.printMessages(["facebook account connected", "10,320 likes ... 2 comments"]);
+    //         this.printHeaderMessages(["facebook account connected", "10,320 likes ... 2 comments"]);
     //         // successful login!
     //     }
     // });

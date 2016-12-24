@@ -1,5 +1,5 @@
 Template.item.viewmodel({
-    share: ['messages', 'menu'],
+    share: ['header', 'menu'],
     onRendered: function() {
         if (!this.name) {
             Router.go('items');
@@ -20,7 +20,7 @@ Template.item.viewmodel({
         var msgs = [
             "display ITEM:" + this._id.value
         ];
-        this.printMessages(msgs);
+        this.printHeaderMessages(msgs);
     },
     deleteItem: function(itemId) {
         Items.remove(itemId);
