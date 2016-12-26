@@ -7,7 +7,7 @@
             <div class="button " {{b "click: dismissMessage() "}}>{{currentMessage.confirmation}}</div>
         </div>
         <div class="popover" {{b "if: currentMessage.attachmentType == 'ITEM' "}}>
-            <div class="message">
+            <div class="message strong">
                 {{currentMessage.attachment.name}}
             </div>
             <div class="message">

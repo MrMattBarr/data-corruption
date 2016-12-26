@@ -28,7 +28,7 @@ Template.lootDetail.viewmodel({
         };
         this.sendMessage(message);
 
-        Items.update(this._id(), { $set: { character: recipient._id } });
+        Items.update(this._id(), { $set: { character: recipient._id, loot: false } });
         Router.go('loot');
     }
 });
