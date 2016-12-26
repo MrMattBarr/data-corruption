@@ -1,0 +1,24 @@
+<template name="master">
+    <div class="master-nav-icons">
+        <div class="icon-nav" {{b "click: goToLoot"}}>
+            <i class="fa fa-cubes"></i>
+            <div>Loot</div>
+        </div>
+        <div class="icon-nav" {{b "click: goToItems"}}>
+            <i class="fa fa-database"></i>
+            <div>Inventory</div>
+        </div>
+        <div class="icon-nav" {{b "click: goToAugments"}}>
+            <i class="fa fa-eercast"></i>
+            <div>Augments</div>
+        </div>
+        <div class="icon-nav flex-grow" {{b "click: goToCampaign"}}>
+            <i class="fa fa-users"></i>
+            <div>Campaign</div>
+        </div>
+        <div class="icon-nav" {{b "click: goToAccount"}}>
+            <i class="fa fa-cog"></i>
+            <div>Account</div>
+        </div>
+    </div>
+</template>

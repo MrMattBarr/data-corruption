@@ -1,10 +1,19 @@
 <template name="popover">
     <div class="popover-backdrop" {{b "if: shouldShowPopover"}}>
-        <div class="popover">
+        <div class="popover" {{b "if: !currentMessage.attachment"}}>
             <div class="message">
                 {{currentMessage.text}}
             </div>
-            <div class="button " {{b "click: dismissMessage() "}}>Dismiss</div>
+            <div class="button " {{b "click: dismissMessage() "}}>{{currentMessage.confirmation}}</div>
+        </div>
+        <div class="popover" {{b "if: currentMessage.attachmentType == 'ITEM' "}}>
+            <div class="message">
+                {{currentMessage.attachment.name}}
+            </div>
+            <div class="message">
+                {{currentMessage.text}}
+            </div>
+            <div class="button " {{b "click: dismissMessage() "}}>{{currentMessage.confirmation}}</div>
         </div>
     </div>
 </template>

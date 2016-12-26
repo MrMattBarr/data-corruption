@@ -21,6 +21,20 @@ Router.map(function() {
     this.route('account', {
         path: '/account'
     });
+    this.route('master', {
+        path: '/master'
+    });
+    this.route('loot', {
+        path: '/master/loot'
+    });
+    this.route('/master/loot/:_id', {
+        name: 'lootDetail',
+        template: 'lootDetail',
+        data: function() {
+            var item = Items.findOne({ _id: this.params._id });
+            return item;
+        }
+    });
     this.route('campaign', {
         name: 'campaign',
         template: 'campaign',

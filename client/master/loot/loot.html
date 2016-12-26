@@ -1,0 +1,16 @@
+<template name="loot">
+    <input class="big-search margin-below" {{b "value: query"}} />
+    <div class="vertical-flexbox margin-below">
+        {{#each loot}}
+        <div class="item-row" {{b "click: selectLoot(this)"}}>
+            <div class="item-icon">
+                <i class="fa fa-cube item-icon"></i>
+            </div>
+            <div class="item-detail">
+                {{this.name}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="button " {{b "click: createLoot() "}}>New Loot</div>
+</template>

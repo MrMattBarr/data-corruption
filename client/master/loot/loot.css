@@ -1,0 +1,54 @@
+.loot-detail {
+    border: 2px solid #666;
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.player-selection-button {
+    border: 1px solid #666;
+    background-color: #efe3e3;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 11px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.player-selection-button:hover {
+    background-color: #c1c1e0;
+}
+
+.loot-detail *:not(.button) {
+    color: #666;
+}
+
+.player-selection {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #999;
+}
+
+.loot-stats {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loot-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loot-name {
+    font-size: 36px;
+}
+
+.loot-stat .value {
+    color: #000;
+}

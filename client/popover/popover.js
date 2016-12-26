@@ -3,13 +3,35 @@ Template.popover.viewmodel({
     currentMessage: null,
     shouldShowPopover: function() {
         if (!Meteor.user()) return false;
-        if (this.currentMessage.value) return true;
+
         var account = Accounts.findOne({ user: Meteor.user()._id });
-        this.currentMessage(Messages.findOne({ recipient: account.currentCharacter }));
-        return !!this.currentMessage.value;
+        var message = Messages.findOne({ recipient: account.currentCharacter });
+
+        if (!message) return false;
+
+        if (message.attachment) {
+            if (message.attachmentType == 'ITEM') {
+                message.attachment = Items.findOne({ _id: message.attachment });
+            }
+        }
+
+
+        this.currentMessage(message);
+        return true;
     },
     dismissMessage: function() {
+        var message = this.currentMessage.value;
         Messages.remove(this.currentMessage.value._id);
         this.currentMessage(null);
+
+        if (message.route) {
+            if (message.argument) {
+                Router.go(message.route, {
+                    _id: message.argument
+                });
+            } else {
+                Router.go(message.route)
+            }
+        }
     }
 });

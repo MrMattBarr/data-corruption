@@ -1,0 +1,37 @@
+<template name="lootDetail">
+    <div class="loot-detail">
+        <div class="loot-name">{{name}}</div>
+        <div class="loot-stats">
+            <div class="loot-stat">
+                <div class="value" ng-if="!!sharpness">{{sharpness}}</div>
+                <div class="value" ng-if="!sharpness">0</div>
+                <div class="label">sharpness</div>
+            </div>
+            <div class="loot-stat">
+                <div class="value" ng-if="!!weight">{{weight}}</div>
+                <div class="value" ng-if="!weight">0</div>
+                <div class="label">weight</div>
+            </div>
+            <div class="loot-stat">
+                <div class="value" ng-if="!!hardness">{{hardness}}</div>
+                <div class="value" ng-if="!hardness">0</div>
+                <div class="label">hardness</div>
+            </div>
+            <div class="loot-stat">
+                <div class="value" ng-if="!!durability">{{durability}}</div>
+                <div class="value" ng-if="!durability">0</div>
+                <div class="label">durability</div>
+            </div>
+            <div class="loot-stat">
+                <div class="value" ng-if="!!sharpness">{{danger}}</div>
+                <div class="value" ng-if="!danger">0</div>
+                <div class="label">danger</div>
+            </div>
+        </div>
+        <div class="player-selection">
+            {{#each campaignMembers}}
+            <div class="player-selection-button" {{b "click: assignLoot(this) "}}>{{this.name}}</div>
+            {{/each}}
+        </div>
+    </div>
+</template>

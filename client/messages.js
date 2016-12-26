@@ -8,7 +8,12 @@ ViewModel.share({
                 createdAt: new Date(),
                 recipient: message.recipient,
                 priority: "POP_UP",
-                status: "NEW"
+                status: "NEW",
+                confirmation: message.confirmation || 'Dismiss',
+                attachment: message.attachment,
+                attachmentType: message.attachmentType,
+                route: message.route,
+                argument: message.argument
             });
         }
     }
