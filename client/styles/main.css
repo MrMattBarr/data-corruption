@@ -48,10 +48,17 @@
     .button {
         text-align: center;
         border: 1px solid #efefef;
+        color: #dedede;
         padding: 15px;
         font-size: 16px;
         font-weight: bold;
         background-color: rgb(25, 135, 235);
+    }
+    
+    .button.secondary {
+        border: 1px solid #666;
+        color: #666;
+        background-color: #efefef;
     }
     
     .button.big-button {
@@ -71,6 +78,10 @@
     .flex-end {
         display: flex;
         justify-content: flex-end;
+    }
+    
+    .lower-label {
+        font-size: 11px;
     }
     
     .space-between {
@@ -155,4 +166,8 @@
     .vertical-flexbox {
         display: flex;
         flex-direction: column;
+    }
+    
+    .center-items {
+        align-items: center;
     }

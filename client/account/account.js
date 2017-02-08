@@ -33,6 +33,13 @@ Template.account.viewmodel({
         }
         return []
     },
+    saveAccount: function() {
+        Accounts.update(this._id(), {
+            $set: {
+                name: this.name.value
+            }
+        });
+    },
     currentCharacter: function() {
         var account = Accounts.findOne({ user: Meteor.user()._id });
         return Characters.findOne({ _id: account.currentCharacter });

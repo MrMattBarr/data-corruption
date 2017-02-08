@@ -1,24 +1,12 @@
 <template name="account">
-    <div class="stat-sheet margin-below">
-        <div class="stat">
-            <div class="label">Brawn:</div>
-            <div class="value">25</div>
-        </div>
-        <div class="stat">
-            <div class="label">Charm:</div>
-            <div class="value">12</div>
-        </div>
-        <div class="stat">
-            <div class="label">Talent:</div>
-            <div class="value">19</div>
-        </div>
-        <div class="stat">
-            <div class="label">Speed:</div>
-            <div class="value">12</div>
-        </div>
-        <div class="stat">
-            <div class="label">Savvy:</div>
-            <div class="value">24</div>
+    <div class="account-sheet">
+        <div class="flexbox space-between">
+            <div class="account-name">
+                <div {{b "if: !editing" }}> {{name}}</div>
+                <input {{b "if: editing, value: name" }} />
+            </div>
+            <div class="button" {{b "toggle: editing, if: !editing" }}>Edit</div>
+            <div class="button" {{b "toggle: editing, if: editing, click: saveAccount()" }}>Save</div>
         </div>
     </div>
     {{#each characters}}

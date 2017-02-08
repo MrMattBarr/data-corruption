@@ -1,5 +1,5 @@
 <template name="campaigns">
-    <div class="vertical-flexbox">
+    <div class="vertical-flexbox margin-below">
         {{#each campaigns}}
         <div class="item-row" {{b "click: joinCampaign(this)"}}>
             <div class="item-icon">
@@ -11,4 +11,5 @@
         </div>
         {{/each}}
     </div>
+    <input {{b "value: joinCode" }} />
 </template>

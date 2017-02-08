@@ -1,15 +1,20 @@
 <template name="campaign">
     <div class="stat-sheet">
-        <div class="character-summary dungeon-master">
-            <div class="label">Dungeonmaster</div>
-            <div class="value">{{dm.name}}</div>
-        </div>
-        <div class="character-summary current-player">
-            <div class="label">{{currentPlayer.name}}</div>
-            <div class="value">This one's you!</div>
+        <div class="flexbox space-between">
+            <div class="character-summary dungeon-master">
+                <div class="label">Dungeonmaster</div>
+                <div class="value">{{dm.name}}</div>
+            </div>
+            <div {{b "if: isMaster" }}>
+                <div class="button" {{b "click: generateInvite, if: !inviteCode" }}>Invite Player</div>
+                <div class="vertical-flexbox center-items" {{b "if:inviteCode"}}>
+                    <div class="invite-code">{{inviteCode}}</div>
+                    <div class="lower-label">Invite Code</div>
+                </div>
+            </div>
         </div>
         {{#each members}}
-        <div class="character-summary" {{b "if: !isCurrentPlayer(this)" }}>
+        <div class="character-summary">
             <div class="label">{{this.name}}</div>
             <div class="value">
                 <i class="fa fa-envelope touch-icon" {{b "click: sendPlayerMessage(this)"}}></i>

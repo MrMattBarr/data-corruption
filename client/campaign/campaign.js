@@ -16,15 +16,16 @@ Template.campaign.viewmodel({
                 icon: "fa-users",
                 route: 'campaigns'
             }, {
-                label: "Delete Item",
-                icon: "fa-trash",
-                action: this.deleteCampaign,
-                arguments: this._id.value
+                label: "Leave Campaign",
+                icon: "fa-sign-out",
+                action: this.leaveCampaign,
+                arguments: this
             }]);
         this.headerText(this.name());
         this.printHeaderMessages(['Very exciting campaign']);
     },
     currentPlayer: function() {
+        if (!Meteor.user()) return null;
         var account = Accounts.findOne({ user: Meteor.user()._id });
         return Characters.findOne({ _id: account.currentCharacter });
     },
@@ -32,9 +33,25 @@ Template.campaign.viewmodel({
         var account = Accounts.findOne({ user: Meteor.user()._id });
         return account.currentCharacter == member._id;
     },
+    leaveCampaign: function(vm) {
+        var character = vm.currentPlayer();
+        Characters.update(character._id, { $set: { campaign: null } });
+        Router.go('campaign');
+    },
     deleteCampaign: function(campaignId) {
         Campaigns.remove(campaignId);
         Router.go('campaigns');
+    },
+    generateInvite: function() {
+        var inviteCode = -1;
+        var inviteCodeTaken = true;
+        while (inviteCodeTaken) {
+            inviteCode = Math.floor(Math.random() * 89999) + 10000;
+            var inviteCodeTaken = !!Campaigns.findOne({ inviteCode: inviteCode });
+        }
+
+        Campaigns.update(this._id.value, { $set: { inviteCode: inviteCode } });
+
     },
     sendPlayerMessage: function(recipient) {
         var message = {
@@ -47,7 +64,12 @@ Template.campaign.viewmodel({
         if (!this._id) return;
         return Characters.find({ campaign: this._id.value });
     },
+    isMaster: function() {
+        var me = Accounts.findOne({ user: Meteor.user()._id });
+        return this.master.value = me._id;
+    },
     dm: function() {
+        if (!this.master) return null;
         var account = Accounts.findOne({ _id: this.master.value });
         return account;
     }
