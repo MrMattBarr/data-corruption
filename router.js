@@ -18,13 +18,13 @@ Router.map(function() {
     this.route('login', {
         path: '/login'
     });
-    this.route('account', {
-        name: 'account',
-        template: 'account',
+    this.route('profile', {
+        name: 'profile',
+        template: 'profile',
         data: function() {
             if (!Meteor.user()) return null;
-            var account = Accounts.findOne({ user: Meteor.user()._id });
-            return account;
+            var profile = Profiles.findOne({ user: Meteor.user()._id });
+            return profile;
         }
     });
     this.route('master', {
@@ -46,11 +46,11 @@ Router.map(function() {
         template: 'campaign',
         data: function() {
             if (!Meteor.user()) return null;
-            var account = Accounts.findOne({ user: Meteor.userId() });
-            if (!account) return null;
-            var dmCampaign = Campaigns.findOne({ master: account._id });
+            var profile = Profiles.findOne({ user: Meteor.userId() });
+            if (!profile) return null;
+            var dmCampaign = Campaigns.findOne({ master: profile._id });
             if (dmCampaign) return dmCampaign;
-            var character = Characters.findOne({ _id: account.currentCharacter });
+            var character = Characters.findOne({ _id: profile.currentCharacter });
             if (!character) return null;
             var campaign = Campaigns.findOne({ _id: character.campaign });
             return campaign;

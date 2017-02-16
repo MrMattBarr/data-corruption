@@ -32,7 +32,7 @@ Template.campaigns.viewmodel({
         Campaigns.insert({
             name: campaignName,
             createdAt: new Date(),
-            master: vm.account()._id
+            master: vm.profile()._id
         });
     },
     joinCampaign: function(campaign) {

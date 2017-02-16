@@ -4,8 +4,8 @@ Template.popover.viewmodel({
     shouldShowPopover: function() {
         if (!Meteor.user()) return false;
 
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        var message = Messages.findOne({ recipient: account.currentCharacter });
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        var message = Messages.findOne({ recipient: profile.currentCharacter });
 
         if (!message) return false;
 

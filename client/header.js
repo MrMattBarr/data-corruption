@@ -1,6 +1,7 @@
 Template.header.viewmodel({
     share: 'header'
-});ViewModel.share({
+});
+ViewModel.share({
     header: {
         printHeaderMessages: function(messages) {
             this.message("");
@@ -38,7 +39,9 @@ Template.header.viewmodel({
         },
         currentMessageReceived: new Date(),
         message: "",
-        headerText: ""
+        headerText: "",
+        anyMessage: function() {
+            return this.message.value.length > 0;
+        }
     }
 });
-

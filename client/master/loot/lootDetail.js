@@ -5,9 +5,9 @@ Template.lootDetail.viewmodel({
         this.printHeaderMessages(["boop a booo"]);
     },
     assignLoot: function(recipient) {
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        if (account) {
-            var character = Characters.findOne({ _id: account.currentCharacter });
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        if (profile) {
+            var character = Characters.findOne({ _id: profile.currentCharacter });
         }
 
         var message = {

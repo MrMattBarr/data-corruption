@@ -1,12 +1,12 @@
-<template name="account">
-    <div class="account-sheet">
+<template name="profile">
+    <div class="profile-sheet">
         <div class="flexbox space-between">
-            <div class="account-name">
+            <div class="profile-name">
                 <div {{b "if: !editing" }}> {{name}}</div>
                 <input {{b "if: editing, value: name" }} />
             </div>
             <div class="button" {{b "toggle: editing, if: !editing" }}>Edit</div>
-            <div class="button" {{b "toggle: editing, if: editing, click: saveAccount()" }}>Save</div>
+            <div class="button" {{b "toggle: editing, if: editing, click: saveProfile()" }}>Save</div>
         </div>
     </div>
     {{#each characters}}

@@ -21,19 +21,19 @@ ViewModel.share({
     character: {
         character: function() {
             if (Meteor.user()) {
-                var account = Accounts.findOne({ user: Meteor.user()._id });
-                if (account) {
-                    var character = Characters.findOne({ _id: account.currentCharacter });
+                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                if (profile) {
+                    var character = Characters.findOne({ _id: profile.currentCharacter });
                     return character;
                 }
             }
             return null;
         },
-        account: function() {
+        profile: function() {
             if (Meteor.user()) {
-                var account = Accounts.findOne({ user: Meteor.user()._id });
-                if (account) {
-                    return account;
+                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                if (profile) {
+                    return profile;
                 }
             }
             return null;

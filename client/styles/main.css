@@ -1,173 +1,191 @@
-    /* CSS declarations go here */
-    
-    body {
-        background-color: rgb(31, 85, 138);
-        background-image: url("bright-squares.png");
-        color: #dedede;
-        background-attachment: fixed;
-        margin: 0;
-        font-family: 'Segoe UI', Arial;
-        user-select: none;
-        cursor: default;
+/* CSS declarations go here */
+
+body {
+    background-color: rgb(31, 85, 138);
+    background-image: url("bright-squares.png");
+    color: #dedede;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Segoe UI', Arial;
+    user-select: none;
+    cursor: default;
+}
+
+.subsection {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.touch-icon {
+    font-size: 36px;
+}
+
+.prompt {
+    font-size: 24px;
+}
+
+.spaced-children > *:not(:last-child) {
+    margin-right: 30px;
+}
+
+.vertically-spaced-children >:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.subsection-header {
+    font-size: 16px;
+    border-bottom: 1px solid #efefef;
+    font-weight: bold;
+}
+
+.subsection-body {
+    padding: 10px 0 0 10px;
+    border-left: 1px solid #efefef;
+}
+
+.button {
+    text-align: center;
+    border: 1px solid #efefef;
+    color: #dedede;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(25, 135, 235);
+}
+
+.button.secondary {
+    border: 1px solid #666;
+    color: #666;
+    background-color: #efefef;
+}
+
+.button.big-button {
+    padding: 20px 30px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.button.green-button {
+    background-color: #1a7b1a;
+}
+
+.button.green-button:hover {
+    background-color: #1d3e1d;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lower-label {
+    font-size: 11px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+.margin-below {
+    margin-bottom: 20px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-body {
+    margin-top: 30px;
+}
+
+.green {
+    color: #64cc64;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.blinky {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    49% {
+        opacity: 1;
     }
-    
-    .subsection {
-        margin-bottom: 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    50% {
+        opacity: 0;
     }
-    
-    .touch-icon {
-        font-size: 36px;
+    99% {
+        opacity: 0;
     }
-    
-    .prompt {
-        font-size: 24px;
+    100% {
+        opacity: 1;
     }
-    
-    .spaced-children > *:not(:last-child) {
-        margin-right: 30px;
-    }
-    
-    .vertically-spaced-children >:not(:last-child) {
-        margin-bottom: 20px;
-    }
-    
-    .subsection-header {
-        font-size: 16px;
-        border-bottom: 1px solid #efefef;
-        font-weight: bold;
-    }
-    
-    .subsection-body {
-        padding: 10px 0 0 10px;
-        border-left: 1px solid #efefef;
-    }
-    
-    .button {
-        text-align: center;
-        border: 1px solid #efefef;
-        color: #dedede;
-        padding: 15px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: rgb(25, 135, 235);
-    }
-    
-    .button.secondary {
-        border: 1px solid #666;
-        color: #666;
-        background-color: #efefef;
-    }
-    
-    .button.big-button {
-        padding: 20px 30px;
-        flex-grow: 1;
-        text-align: center;
-    }
-    
-    .button.green-button {
-        background-color: #1a7b1a;
-    }
-    
-    .button.green-button:hover {
-        background-color: #1d3e1d;
-    }
-    
-    .flex-end {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .lower-label {
-        font-size: 11px;
-    }
-    
-    .space-between {
-        justify-content: space-between;
-    }
-    
-    .flex-center {
-        align-items: center;
-    }
-    
-    .margin-below {
-        margin-bottom: 20px;
-    }
-    
-    .preview-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .preview-body {
-        margin-top: 30px;
-    }
-    
-    .green {
-        color: #64cc64;
-    }
-    
-    .flex-grow {
-        flex-grow: 1;
-    }
-    
-    .blinky {
-        animation: blinker 1.5s linear infinite;
-    }
-    
-    @keyframes blinker {
-        49% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0;
-        }
-        99% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    
-    .padme {
-        padding: 10px;
-    }
-    
-    .flexbox {
-        display: flex;
-    }
-    
-    .nav-button .nav-label {
-        font-size: 9px;
-        color: #000;
-    }
-    
-    .nav-button {
-        background-color: black;
-        padding: 5px;
-        flex-grow: 1;
-        color: #888;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
-    
-    .nav-button:hover {
-        background-color: #e6e6e6;
-        color: #000;
-    }
-    
-    .vertical-flexbox {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .center-items {
-        align-items: center;
-    }
+}
+
+.padme {
+    padding: 10px;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.nav-button .nav-label {
+    font-size: 9px;
+    color: #000;
+}
+
+.nav-button {
+    background-color: black;
+    padding: 5px;
+    flex-grow: 1;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-button:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.vertical-flexbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.center-items {
+    align-items: center;
+}
+
+.explanation-box {
+    background-color: #eee;
+    border-radius: 2px;
+    padding: 10px;
+    border-color: rgb(25, 135, 235);
+    color: rgb(25, 135, 235);
+    margin-bottom: 20px;
+}
+
+.explanation-box .header {
+    font-size: 24px;
+}
+
+.explanation-box input {
+    border-color: rgb(25, 135, 245);
+    border-radius: 3px;
+}

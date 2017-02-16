@@ -1,4 +1,4 @@
-.account-sheet {
+.profile-sheet {
     background-color: #efefef;
     padding: 10px;
     margin-bottom: 10px;
@@ -6,6 +6,6 @@
     color: #666;
 }
 
-.account-sheet .account-name {
+.profile-sheet .profile-name {
     font-size: 36px;
 }

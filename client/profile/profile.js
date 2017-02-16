@@ -1,9 +1,9 @@
-Template.account.viewmodel({
+Template.profile.viewmodel({
     share: ['header', 'menu'],
     onRendered: function() {
         var vm = this;
-        vm.headerText("Account Settings");
-        vm.printHeaderMessages(["user.account"]);
+        vm.headerText("Profile Settings");
+        vm.printHeaderMessages(["user.profile"]);
         if (!Meteor.user()) {
             Router.go("login");
         }
@@ -24,8 +24,8 @@ Template.account.viewmodel({
                 arguments: vm
             }]);
     },
-    account: function() {
-        return Accounts.findOne({ user: Meteor.user()._id });
+    profile: function() {
+        return Profile.findOne({ user: Meteor.user()._id });
     },
     characters: function() {
         if (Meteor.user()) {
@@ -33,25 +33,25 @@ Template.account.viewmodel({
         }
         return []
     },
-    saveAccount: function() {
-        Accounts.update(this._id(), {
+    saveprofile: function() {
+        Profiles.update(this._id(), {
             $set: {
                 name: this.name.value
             }
         });
     },
     currentCharacter: function() {
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        return Characters.findOne({ _id: account.currentCharacter });
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        return Characters.findOne({ _id: profile.currentCharacter });
     },
     isCurrentCharacter: function(character) {
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        return account.currentCharacter == character._id;
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        return profile.currentCharacter == character._id;
     },
     selectCharacter: function(character) {
-        var id = this.account()._id;
+        var id = this.profile()._id;
         if (id && character) {
-            Accounts.update(id, { $set: { currentCharacter: character._id } });
+            Profiles.update(id, { $set: { currentCharacter: character._id } });
             Router.go('home');
         }
     },

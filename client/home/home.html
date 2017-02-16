@@ -1,25 +1,25 @@
 <template name="home">
     <div class="padme">
         <div class="nav-icons">
-            <div class="icon-nav flex-grow" {{b "click: goToCharacter"}}>
+            <div class="icon-nav flex-grow" {{b "click: go('character')"}}>
                 <i class="fa fa-id-card"></i>
                 <div>Status</div>
             </div>
-            <div class="icon-nav items-nav" {{b "click: goToItems"}}>
+            <div class="icon-nav items-nav" {{b "click: go('items')"}}>
                 <i class="fa fa-database"></i>
                 <div>Inventory</div>
             </div>
-            <div class="icon-nav items-nav" {{b "click: goToAugments"}}>
+            <div class="icon-nav items-nav" {{b "click: go('augments')"}}>
                 <i class="fa fa-eercast"></i>
                 <div>Augments</div>
             </div>
-            <div class="icon-nav flex-grow" {{b "click: goToCampaign"}}>
+            <div class="icon-nav flex-grow" {{b "click: go('campaign')"}}>
                 <i class="fa fa-users"></i>
                 <div>Campaign</div>
             </div>
-            <div class="icon-nav" {{b "click: goToAccount"}}>
+            <div class="icon-nav" {{b "click: go('profile')"}}>
                 <i class="fa fa-cog"></i>
-                <div>Account</div>
+                <div>Profile</div>
             </div>
         </div>
     </div>

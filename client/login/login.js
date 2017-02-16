@@ -12,9 +12,8 @@ Template.login.viewmodel({
         if (!vm) vm = this;
         vm.isLoggedIn(!!Meteor.user());
         if (vm.isLoggedIn.value) {
-            var Account = Accounts.findOne({ user: Meteor.user()._id });
-            if (!Account) Account = Accounts.insert({
-                name: "Mr. Booply",
+            var Profile = Profiles.findOne({ user: Meteor.user()._id });
+            if (!Profile) Profile = Profiles.insert({
                 createdAt: new Date(),
                 user: Meteor.user()._id
             });
@@ -32,9 +31,10 @@ Template.login.viewmodel({
     },
     createAccount: function() {
         var vm = this;
-        Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
-            vm.printHeaderMessages(['account accessed: ' + Meteor.user().emails[0].address]);
-            vm.checkLogIn();
+        Accounts.createUser({
+            email: this.username.value,
+            password: this.password.value
         });
+        this.checkLogIn();
     }
 });

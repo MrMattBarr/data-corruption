@@ -5,7 +5,7 @@ import './main.html';
 Items = new Mongo.Collection("items");
 Campaigns = new Mongo.Collection("campaigns");
 Characters = new Mongo.Collection("characters");
-Accounts = new Mongo.Collection("accounts");
+Profiles = new Mongo.Collection("profiles");
 Messages = new Mongo.Collection("messages");
 
 

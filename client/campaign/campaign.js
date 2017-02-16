@@ -26,12 +26,12 @@ Template.campaign.viewmodel({
     },
     currentPlayer: function() {
         if (!Meteor.user()) return null;
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        return Characters.findOne({ _id: account.currentCharacter });
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        return Characters.findOne({ _id: profile.currentCharacter });
     },
     isCurrentPlayer: function(member) {
-        var account = Accounts.findOne({ user: Meteor.user()._id });
-        return account.currentCharacter == member._id;
+        var profile = Profiles.findOne({ user: Meteor.user()._id });
+        return profile.currentCharacter == member._id;
     },
     leaveCampaign: function(vm) {
         var character = vm.currentPlayer();
@@ -65,12 +65,12 @@ Template.campaign.viewmodel({
         return Characters.find({ campaign: this._id.value });
     },
     isMaster: function() {
-        var me = Accounts.findOne({ user: Meteor.user()._id });
+        var me = Profiles.findOne({ user: Meteor.user()._id });
         return this.master.value = me._id;
     },
     dm: function() {
         if (!this.master) return null;
-        var account = Accounts.findOne({ _id: this.master.value });
-        return account;
+        var profile = Profiles.findOne({ _id: this.master.value });
+        return profile;
     }
 });
