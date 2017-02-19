@@ -5,6 +5,9 @@ Template.menu.viewmodel({
 ViewModel.share({
     menu: {
         menuItems: [],
+        getMenuItems: function() {
+            return this.menuItems.value.array();
+        },
         go: function(route) {
             Router.go(route);
         },

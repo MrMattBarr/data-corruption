@@ -1,6 +1,6 @@
 <template name="menu">
     <div class="bottom-menu" {{b "if: menuItems.length > 0"}}>
-        {{#each menuItems}}
+        {{#each getMenuItems}}
         <div class="nav-button" {{b "click: processItem(this)"}}>
             <i class="fa {{icon}}"></i>
             <div class="nav-label">{{this.label}}</div>
