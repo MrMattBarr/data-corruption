@@ -7,7 +7,7 @@ Template.lootDetail.viewmodel({
     assignLoot: function(recipient) {
         var profile = Profiles.findOne({ user: Meteor.user()._id });
         if (profile) {
-            var character = Characters.findOne({ _id: profile.currentCharacter });
+            var character = Characters.findOne({ _id: profile.character });
         }
 
         var message = {

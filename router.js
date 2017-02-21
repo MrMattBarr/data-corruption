@@ -50,7 +50,7 @@ Router.map(function() {
             if (!profile) return null;
             var dmCampaign = Campaigns.findOne({ master: profile._id });
             if (dmCampaign) return dmCampaign;
-            var character = Characters.findOne({ _id: profile.currentCharacter });
+            var character = Characters.findOne({ _id: profile.character });
             if (!character) return null;
             var campaign = Campaigns.findOne({ _id: character.campaign });
             return campaign;
@@ -58,6 +58,12 @@ Router.map(function() {
     });
     this.route('campaigns', {
         path: '/campaigns'
+    });
+    this.route('campaignCreate', {
+        path: '/campaigns/create'
+    });
+    this.route('campaignJoin', {
+        path: '/campaigns/join'
     });
     this.route('augmentUpgrades', {
         path: '/upgrade/augments'

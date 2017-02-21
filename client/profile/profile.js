@@ -40,23 +40,23 @@ Template.profile.viewmodel({
             }
         });
     },
-    currentCharacter: function() {
+    character: function() {
         var profile = Profiles.findOne({ user: Meteor.user()._id });
-        return Characters.findOne({ _id: profile.currentCharacter });
+        return Characters.findOne({ _id: profile.character });
     },
     isCurrentCharacter: function(character) {
         var profile = Profiles.findOne({ user: Meteor.user()._id });
-        return profile.currentCharacter == character._id;
+        return profile.character == character._id;
     },
     selectCharacter: function(character) {
         var id = this.profile()._id;
-        if (id && character) {
-            Profiles.update(id, { $set: { currentCharacter: character._id } });
+        if (id && character) {Profiles.update(id, { $set: { character: character._id } });
+
             Router.go('home');
         }
     },
     deleteCurrentCharacter: function() {
-        Characters.remove(this.currentCharacter()._id);
+        Characters.remove(this.character()._id);
         Router.go('home');
     },
     newCharacter: function(vm) {

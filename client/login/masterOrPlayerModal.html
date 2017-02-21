@@ -1,0 +1,26 @@
+<template name="masterOrPlayerModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="popover-header">
+                    Welcome to DATA: Corruption
+                </div>
+                <div class="modal-body">
+                    <p class="margin-below">Are you using DATA: Corruption as a <strong>GAME MASTER</strong> to run a campaign for a group of players or as a <strong>PLAYER</strong> to join a pre-existing campaign?</p>
+                    <div class="flexbox space-around spaced-children flex-wrap">
+                        <div class="binary-option-button" {{b "click: goMaster()"}}>
+                            <div></div>
+                            <i class="fa fa-laptop"></i>
+                            <div>Game Master</div>
+                        </div>
+                        <div class="binary-option-button" {{b "click: closeModalAndGo('campaignJoin')"}}>
+                            <div></div>
+                            <i class="fa fa-mobile"></i>
+                            <div>Player</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

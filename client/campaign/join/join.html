@@ -1,0 +1,21 @@
+<template name="campaignJoin">
+    <div class="explanation-box">
+        <div {{b "if : !campaign"}}>
+            <div class="margin-below">
+                <div class="header"> Invite Code</div>
+                <input {{b "value: inviteCode" }} />
+            </div>
+            <div class="header grey-text">No Campaign Found</div>
+        </div>
+        <div {{b "if : campaign"}}>
+            <div class="margin-below">
+                <div class="header">{{campaign.name}}</div>
+            </div>
+            <div class="margin-below">
+                <div class="header"> Character Name</div>
+                <input {{b "value: characterName" }} />
+            </div>
+            <div class="button submit-button" {{b "click: joinCampaign() "}}>Join Campaign</div>
+        </div>
+    </div>
+</template>

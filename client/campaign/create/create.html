@@ -1,0 +1,21 @@
+<template name="campaignCreate">
+    <div class="explanation-box">
+        <div class="margin-below">
+            <div class="header">Campaign Name</div>
+            <input {{b "value: campaignName" }} />
+        </div>
+        <div class="margin-below">
+            <div class="header">Starting Experience</div>
+            <div class="options-list">
+                {{#each getExperienceOptions}}
+                <div class="options-list-button" {{b "class: {pressed: this.value == experience}, click: select(this, 'experience')"}}>
+                    <div></div>
+                    <div class="i-text">{{this.display}}</div>
+                    <div>{{this.label}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="button submit-button" {{b "click: createCampaign() "}}>Create Campaign</div>
+    </div>
+</template>

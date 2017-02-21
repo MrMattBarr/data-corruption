@@ -5,7 +5,7 @@ Template.popover.viewmodel({
         if (!Meteor.user()) return false;
 
         var profile = Profiles.findOne({ user: Meteor.user()._id });
-        var message = Messages.findOne({ recipient: profile.currentCharacter });
+        var message = Messages.findOne({ recipient: profile.character });
 
         if (!message) return false;
 

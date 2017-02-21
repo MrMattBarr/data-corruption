@@ -23,7 +23,7 @@ ViewModel.share({
             if (Meteor.user()) {
                 var profile = Profiles.findOne({ user: Meteor.user()._id });
                 if (profile) {
-                    var character = Characters.findOne({ _id: profile.currentCharacter });
+                    var character = Characters.findOne({ _id: profile.character });
                     return character;
                 }
             }
@@ -34,6 +34,16 @@ ViewModel.share({
                 var profile = Profiles.findOne({ user: Meteor.user()._id });
                 if (profile) {
                     return profile;
+                }
+            }
+            return null;
+        },
+        campaign: function() {
+            if (Meteor.user()) {
+                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                if (profile && profile.campaign) {
+                    var campaign = Campaigns.findOne({ _id: profile.campaign });
+                    return campaign || null;
                 }
             }
             return null;

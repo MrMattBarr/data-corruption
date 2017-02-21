@@ -1,9 +1,7 @@
 ViewModel.share({
     master: {
         campaignMembers: function() {
-            if (!Meteor.user()) return [];
-            var profile = Profiles.findOne({ user: Meteor.user()._id });
-            var campaign = Campaigns.findOne({ master: profile._id });
+            var campaign = this.campaign();
             return Characters.find({ campaign: campaign._id });
         }
     }

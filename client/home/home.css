@@ -1,7 +1,3 @@
-.character-name {
-    font-size: 36px;
-}
-
 .character-summary {
     font-size: 14px;
 }
@@ -22,10 +18,22 @@
     justify-content: space-around;
     height: 100px;
     min-width: 100px;
+    cursor: pointer;
     margin-bottom: 15px;
 }
 
+.icon-nav.read-only,
+.icon-nav.read-only:hover {
+    background-color: rgb(87, 132, 113);
+    color: #efefef;
+    cursor: default;
+}
+
 .icon-nav i {
+    font-size: 40px;
+}
+
+.icon-nav .i-text {
     font-size: 40px;
 }
 

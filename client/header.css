@@ -16,8 +16,14 @@
     height: 50px;
     width: 100vw;
     white-space: nowrap;
-    background-color: rgb(31, 85, 138);
-    background-image: url("bright-squares.png");
+    /*background-color: rgb(31, 85, 138);
+background-image: url("bright-squares.png");
+*/
+}
+
+.top-header-text {
+    margin-bottom: -8px;
+    font-size: 36px;
 }
 
 .bottom-menu {

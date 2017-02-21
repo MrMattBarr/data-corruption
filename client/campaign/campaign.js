@@ -27,11 +27,11 @@ Template.campaign.viewmodel({
     currentPlayer: function() {
         if (!Meteor.user()) return null;
         var profile = Profiles.findOne({ user: Meteor.user()._id });
-        return Characters.findOne({ _id: profile.currentCharacter });
+        return Characters.findOne({ _id: profile.character });
     },
     isCurrentPlayer: function(member) {
         var profile = Profiles.findOne({ user: Meteor.user()._id });
-        return profile.currentCharacter == member._id;
+        return profile.character == member._id;
     },
     leaveCampaign: function(vm) {
         var character = vm.currentPlayer();

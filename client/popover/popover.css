@@ -17,6 +17,17 @@
     border-radius: 4px;
 }
 
+.popover-header {
+    background-color: rgb(31, 85, 138);
+    color: #efefef;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.modal-dialog {
+    color: #666;
+}
+
 .popover .message {
     color: #666;
     margin-bottom: 20px;

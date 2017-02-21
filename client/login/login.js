@@ -12,12 +12,22 @@ Template.login.viewmodel({
         if (!vm) vm = this;
         vm.isLoggedIn(!!Meteor.user());
         if (vm.isLoggedIn.value) {
-            var Profile = Profiles.findOne({ user: Meteor.user()._id });
-            if (!Profile) Profile = Profiles.insert({
+            var profile = Profiles.findOne({ user: Meteor.user()._id });
+            if (!profile) profile = Profiles.insert({
                 createdAt: new Date(),
                 user: Meteor.user()._id
             });
-            Router.go('home');
+            var campaignId = profile.campaign;
+            if (campaignId) {
+                var campaign = Campaigns.findOne({ _id: campaignId });
+                if (campaign.master == profile._id) {
+                    this.go('master');
+                } else {
+                    this.go('home');
+                }
+            } else {
+                Modal.show('masterOrPlayerModal');
+            }
         } else {
             vm.menuItems([]);
         }
@@ -35,6 +45,6 @@ Template.login.viewmodel({
             email: this.username.value,
             password: this.password.value
         });
-        this.checkLogIn();
+        Modal.show('masterOrPlayerModal');
     }
 });
