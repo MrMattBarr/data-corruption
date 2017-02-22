@@ -66,7 +66,7 @@ Template.campaign.viewmodel({
     },
     isMaster: function() {
         var me = Profiles.findOne({ user: Meteor.user()._id });
-        return this.master.value = me._id;
+        return this.master.value == me._id;
     },
     dm: function() {
         if (!this.master) return null;

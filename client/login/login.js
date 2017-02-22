@@ -35,6 +35,11 @@ Template.login.viewmodel({
     logIn: function() {
         var vm = this;
         Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
+            var profile = Profiles.findOne({ user: Meteor.user()._id });
+            if (!profile) profile = Profiles.insert({
+                createdAt: new Date(),
+                user: Meteor.user()._id
+            });
             vm.printHeaderMessages(['account accessed: ' + Meteor.user().emails[0].address]);
             vm.checkLogIn();
         });

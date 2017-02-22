@@ -9,6 +9,7 @@ Template.master.viewmodel({
     inviteCode: function() {
         var campaign = this.campaign();
         if (!campaign) return null;
+        console.log('campaign', campaign, !!campaign.inviteCode);
         return campaign.inviteCode;
     },
     generateInviteCode: function() {

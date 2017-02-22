@@ -1,8 +1,6 @@
 /* CSS declarations go here */
 
 body {
-    background-color: rgb(31, 85, 138);
-    background-image: url("wallpaper.jpg");
     /*background-image: url("bright-squares.png");*/
     color: #dedede;
     background-attachment: fixed;
@@ -10,9 +8,15 @@ body {
     font-family: 'Segoe UI', Arial;
     user-select: none;
     cursor: default;
+    background-color: black;
 }
 
-.bg-overlay {
+.bg-overlay-1 {
+    height: 100vh;
+    background-image: url("wallpaper.jpg");
+}
+
+.bg-overlay-2 {
     background-image: url("bright-squares.png");
     height: 100vh;
     background-color: rgba(31, 85, 138, .7);
@@ -227,6 +231,10 @@ body {
 
 .explanation-box .header {
     font-size: 24px;
+}
+
+input {
+    color: #333;
 }
 
 input:focus {

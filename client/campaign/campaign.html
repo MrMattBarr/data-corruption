@@ -5,13 +5,6 @@
                 <div class="label">Dungeonmaster</div>
                 <div class="value">{{dm.name}}</div>
             </div>
-            <div {{b "if: isMaster" }}>
-                <div class="button" {{b "click: generateInvite, if: !inviteCode" }}>Invite Player</div>
-                <div class="vertical-flexbox center-items" {{b "if:inviteCode"}}>
-                    <div class="invite-code">{{inviteCode}}</div>
-                    <div class="lower-label">Invite Code</div>
-                </div>
-            </div>
         </div>
         {{#each members}}
         <div class="character-summary">

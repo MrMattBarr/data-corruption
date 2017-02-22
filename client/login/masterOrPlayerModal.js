@@ -5,12 +5,11 @@ Template.masterOrPlayerModal.viewmodel({
     },
     goMaster: function() {
         var profile = Profiles.findOne({ user: Meteor.user()._id });
+        if (!profile) { this.closeModalAndGo('profile'); }
         var campaign = profile.campaign;
-        console.log('campaign is this %O', campaign);
         if (campaign) {
             this.closeModalAndGo('master');
         } else {
-
             this.closeModalAndGo('campaignCreate');
         }
     }

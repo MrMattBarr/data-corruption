@@ -3,14 +3,16 @@
     <link rel='icon' href='/favicon.png'>
 </head>
 <template name="layout">
-    <div class="bg-overlay">
-        {{>popover}}
-        <div class="game-body">
-            {{>header}}
-            <div class="main-display">
-                {{>yield}}
+    <div class="bg-overlay-1">
+        <div class="bg-overlay-2">
+            {{>popover}}
+            <div class="game-body">
+                {{>header}}
+                <div class="main-display">
+                    {{>yield}}
+                </div>
+                {{>menu}}
             </div>
-            {{>menu}}
         </div>
     </div>
 </template>

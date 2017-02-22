@@ -4,12 +4,12 @@
             <i class="fa fa-cubes"></i>
             <div>Loot</div>
         </div>
-        <div class="icon-nav" {{b "if:!inviteCode(), click: generateInviteCode()"}}>
+        <div class="icon-nav" {{b "if:!inviteCode, click: generateInviteCode()"}}>
             <div></div>
             <i class="fa fa-user-plus"></i>
             <div>Generate Invite Code</div>
         </div>
-        <div class="icon-nav read-only" {{b "if:!!inviteCode()"}}>
+        <div class="icon-nav read-only" {{b "if:!!inviteCode"}}>
             <div></div>
             <div class="i-text">{{inviteCode}}</div>
             <div>Campaign Invite Code</div>

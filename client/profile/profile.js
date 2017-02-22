@@ -25,7 +25,7 @@ Template.profile.viewmodel({
             }]);
     },
     profile: function() {
-        return Profile.findOne({ user: Meteor.user()._id });
+        return Profiles.findOne({ user: Meteor.user()._id });
     },
     characters: function() {
         if (Meteor.user()) {
@@ -33,7 +33,8 @@ Template.profile.viewmodel({
         }
         return []
     },
-    saveprofile: function() {
+    saveProfile: function() {
+        console.log('profile %O name %O', this.profile(), this.name.value);
         Profiles.update(this._id(), {
             $set: {
                 name: this.name.value
@@ -50,7 +51,8 @@ Template.profile.viewmodel({
     },
     selectCharacter: function(character) {
         var id = this.profile()._id;
-        if (id && character) {Profiles.update(id, { $set: { character: character._id } });
+        if (id && character) {
+            Profiles.update(id, { $set: { character: character._id } });
 
             Router.go('home');
         }

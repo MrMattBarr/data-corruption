@@ -22,6 +22,7 @@ Template.campaignJoin.viewmodel({
         var name = this.characterName.value;
         var user = Meteor.user()._id;
         var profile = this.profile();
+        console.log('cid %O name %O user %O profile %O', cid, name, user, profile);
         if (cid && name && user && profile) {
             var character = Characters.insert({
                 name: name,

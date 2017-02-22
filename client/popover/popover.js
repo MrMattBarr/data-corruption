@@ -2,6 +2,7 @@ Template.popover.viewmodel({
     share: 'header',
     currentMessage: null,
     shouldShowPopover: function() {
+        return false;
         if (!Meteor.user()) return false;
 
         var profile = Profiles.findOne({ user: Meteor.user()._id });
