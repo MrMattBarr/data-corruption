@@ -5,18 +5,6 @@ Template.lootDetail.viewmodel({
         this.printHeaderMessages(["boop a booo"]);
     },
     assignLoot: function(recipient) {
-        var profile = Profiles.findOne({ user: Meteor.user()._id });
-        if (profile) {
-            var character = Characters.findOne({ _id: profile.character });
-        }
-
-        var message = {
-            recipient: character._id,
-            text: "Item sent to " + recipient.name + ".",
-            confirmation: "Great"
-        };
-        this.sendMessage(message);
-
         message = {
             recipient: recipient._id,
             text: "Item received: " + this.name() + ".",
