@@ -26,7 +26,7 @@ Template.login.viewmodel({
                     this.go('home');
                 }
             } else {
-                Modal.show('masterOrPlayerModal');
+                this.OpenModal('masterOrPlayerModal');
             }
         } else {
             vm.menuItems([]);

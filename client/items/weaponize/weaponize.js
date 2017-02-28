@@ -147,8 +147,12 @@ Template.weaponize.viewmodel({
         else if (field == 'hardness') Items.update(this._id(), { $set: { hardness: value } });
         else if (field == 'weight') Items.update(this._id(), { $set: { weight: value } });
         else if (field == 'durability') Items.update(this._id(), { $set: { durability: value } });
-        else if (field == 'danger') Items.update(this._id(), { $set: { danger: value } });
-
+        else if (field == 'danger') {
+            Items.update(this._id(), { $set: { danger: value } });
+            Router.go('item', {
+                _id: this._id.value
+            });
+        }
     },
     currentField: function() {
         return Weaponizer.getCurrentField(this);

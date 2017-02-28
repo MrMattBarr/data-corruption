@@ -4,7 +4,6 @@ Template.home.viewmodel({
         if (Meteor.user()) {
             var profile = this.profile();
             var character = this.character();
-            console.log('character %O', character);
 
             if (character) {
                 this.headerText(this.character().name);

@@ -1,0 +1,40 @@
+<template name="itemModal">
+    <div class="modal fade" data-background="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div> Item Received!</div>
+                    <i class="fa fa-close" {{b "click: dismissMessage()"}}></i>
+                </div>
+                <div class="modal-body">
+                    <div class="loot-name">{{CurrentMessage.attachment.name}}</div>
+                    <div class="loot-stats">
+                        <div class="loot-stat">
+                            <div class="value" ng-if="!!sharpness">{{CurrentMessage.attachment.sharpness}}</div>
+                            <div class="label">sharpness</div>
+                        </div>
+                        <div class="loot-stat">
+                            <div class="value" ng-if="!!weight">{{CurrentMessage.attachment.weight}}</div>
+                            <div class="label">weight</div>
+                        </div>
+                        <div class="loot-stat">
+                            <div class="value" ng-if="!!hardness">{{CurrentMessage.attachment.hardness}}</div>
+                            <div class="label">hardness</div>
+                        </div>
+                        <div class="loot-stat">
+                            <div class="value" ng-if="!!durability">{{CurrentMessage.attachment.durability}}</div>
+                            <div class="label">durability</div>
+                        </div>
+                        <div class="loot-stat">
+                            <div class="value" ng-if="!!sharpness">{{CurrentMessage.attachment.danger}}</div>
+                            <div class="label">danger</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="button flat" {{b "click: goToItem() "}}>Check It Out</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

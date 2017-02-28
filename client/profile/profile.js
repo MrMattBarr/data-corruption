@@ -20,8 +20,7 @@ Template.profile.viewmodel({
             }, {
                 label: "Sign Out",
                 icon: "fa-sign-out",
-                action: vm.logOut,
-                arguments: vm
+                action: this.logOut
             }]);
     },
     profile: function() {
@@ -76,10 +75,5 @@ Template.profile.viewmodel({
         } else {
             vm.printMessage["no user logged in"];
         }
-    },
-    logOut: function(vm) {
-        Meteor.logout(function() {
-            Router.go('login');
-        });
     }
 });

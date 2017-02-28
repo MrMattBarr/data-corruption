@@ -4,13 +4,18 @@ Template.master.viewmodel({
         var campaign = this.campaign();
         this.headerText(campaign.name);
         this.menuItems([]);
-        this.printHeaderMessages(["Initializing godMode.exe"]);
+        this.printHeaderMessages(["GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}"]);
     },
     inviteCode: function() {
         var campaign = this.campaign();
         if (!campaign) return null;
-        console.log('campaign', campaign, !!campaign.inviteCode);
         return campaign.inviteCode;
+    },
+    hasInviteCode: function() {
+        var campaign = this.campaign();
+        if (!campaign) return false;
+        return !!campaign.inviteCode;
+
     },
     generateInviteCode: function() {
         var campaign = this.campaign();

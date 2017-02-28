@@ -17,6 +17,11 @@ ViewModel.share({
             } else {
                 item.action(item.arguments);
             }
+        },
+        logOut: function() {
+            Meteor.logout(function() {
+                Router.go('login');
+            });
         }
     }
 });

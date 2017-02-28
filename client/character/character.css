@@ -6,9 +6,10 @@
 
 .stat {
     display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .stat .label {
-    font-weight: bold;
-    margin-right: 10px;
+    font-size: 11px;
 }
