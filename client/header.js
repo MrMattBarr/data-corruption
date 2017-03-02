@@ -1,5 +1,5 @@
 Template.header.viewmodel({
-    share: 'header'
+    share: ['header', 'menu']
 });
 ViewModel.share({
     header: {
@@ -11,8 +11,8 @@ ViewModel.share({
             if (messageReceived > vm.currentMessageReceived.value) {
                 vm.currentMessageReceived(messageReceived);
             }
-            var nextTimer = Math.floor(Math.random() * maxTimer);
-            var clear = false;
+            let nextTimer = Math.floor(Math.random() * maxTimer);
+            let clear = false;
             if (vm.message.value.length == 0) {
                 nextTimer += 200;
             } else if (messages[0].length == 0) {

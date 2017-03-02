@@ -1,7 +1,7 @@
 Template.character.viewmodel({
     share: ['header', 'menu'],
     onRendered() {
-        var msgs = [
+        const msgs = [
             "STATS = loadModule 'Statistics'",
             "READOUT = STATS.analyze 'Matt Barr'",
             "print READOUT"
@@ -21,9 +21,9 @@ ViewModel.share({
     character: {
         character: function() {
             if (Meteor.user()) {
-                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                const profile = Profiles.findOne({ user: Meteor.user()._id });
                 if (profile) {
-                    var character = Characters.findOne({ _id: profile.character });
+                    const character = Characters.findOne({ _id: profile.character });
                     return character;
                 }
             }
@@ -31,7 +31,7 @@ ViewModel.share({
         },
         profile: function() {
             if (Meteor.user()) {
-                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                const profile = Profiles.findOne({ user: Meteor.user()._id });
                 if (profile) {
                     return profile;
                 }
@@ -40,9 +40,9 @@ ViewModel.share({
         },
         campaign: function() {
             if (Meteor.user()) {
-                var profile = Profiles.findOne({ user: Meteor.user()._id });
+                const profile = Profiles.findOne({ user: Meteor.user()._id });
                 if (profile && profile.campaign) {
-                    var campaign = Campaigns.findOne({ _id: profile.campaign });
+                    const campaign = Campaigns.findOne({ _id: profile.campaign });
                     return campaign || null;
                 }
             }

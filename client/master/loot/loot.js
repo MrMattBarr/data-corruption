@@ -1,11 +1,11 @@
 Template.loot.viewmodel({
     share: ['character', 'header', 'menu'],
     createLoot: function(vm) {
-        var adjectives = ["Iron", "Fishy", "Techno", "Cybertronic", "Elemental"];
-        var nouns = ["iPod", "Horse", "Gun", "Dagger", "Dollar"];
-        var adj = adjectives[Math.floor(Math.random() * adjectives.length)];
-        var noun = nouns[Math.floor(Math.random() * nouns.length)];
-        var itemName = adj + " " + noun;
+        const adjectives = ["Iron", "Fishy", "Techno", "Cybertronic", "Elemental"];
+        const nouns = ["iPod", "Horse", "Gun", "Dagger", "Dollar"];
+        const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const noun = nouns[Math.floor(Math.random() * nouns.length)];
+        const itemName = adj + " " + noun;
         Items.insert({
             name: itemName,
             createdAt: new Date(),
@@ -16,8 +16,8 @@ Template.loot.viewmodel({
     },
     query: '',
     loot: function() {
-        var items = Items.find({ loot: true }).fetch();
-        var query = this.query();
+        const items = Items.find({ loot: true }).fetch();
+        const query = this.query();
         return items.filter(function(x) {
             return x.name.toLowerCase().includes(query.toLowerCase());
         });

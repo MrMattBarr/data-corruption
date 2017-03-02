@@ -1,12 +1,12 @@
 Template.items.viewmodel({
     share: ['character', 'header', 'menu'],
     addItem: function(vm) {
-        var adjectives = ["Big", "Red", "Ugly", "Ancient", "Strong"];
-        var nouns = ["Dragon", "Crowbar", "Sandwich", "Tome", "Bricks"];
-        var adj = adjectives[Math.floor(Math.random() * adjectives.length)];
-        var noun = nouns[Math.floor(Math.random() * nouns.length)];
-        var itemName = adj + " " + noun;
-        var character = vm.character();
+        const adjectives = ["Big", "Red", "Ugly", "Ancient", "Strong"];
+        const nouns = ["Dragon", "Crowbar", "Sandwich", "Tome", "Bricks"];
+        const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const noun = nouns[Math.floor(Math.random() * nouns.length)];
+        const itemName = adj + " " + noun;
+        const character = vm.character();
         if (character) {
             Items.insert({
                 name: itemName,
@@ -18,7 +18,7 @@ Template.items.viewmodel({
         }
     },
     items: function() {
-        var character = this.character();
+        const character = this.character();
         if (character) {
             return Items.find({ character: character._id });
         }

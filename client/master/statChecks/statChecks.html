@@ -1,0 +1,56 @@
+<template name="statChecks">
+    <div class="explanation-box">
+        <div class="margin-below">
+            <div class="header spaced-children flexbox">
+                <i class="fa fa-triangle-down"></i>
+                <div>1) Select a Stat</div>
+            </div>
+            <div class="options-list">
+                {{#each statsList}}
+                <div class="options-list-button" {{b "class: {pressed: this.value == stat}, click: select(this, 'stat')"}}>
+                    <div></div>
+                    <i class="fa" {{b "class: this.icon"}}></i>
+                    <div>{{this.label}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="margin-below">
+            <div class="header">2) Select Party Members</div>
+            <div class="options-list">
+                {{#each campaignMembers}}
+                <div class="options-list-button" {{b "class: {'pressed': getSelected.includes(this._id)}, click: toggleMember(this)"}}>
+                    <div></div>
+                    <i class="fa fa-user"></i>
+                    <div>{{this.name}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="margin-below">
+            <div class="header">3) Set Difficulty</div>
+            <div class="options-list">
+                {{#each difficultyList}}
+                <div class="options-list-button" {{b "class: {pressed: this.value == difficulty}, click: select(this, 'difficulty')"}}>
+                    <div></div>
+                    <div class="i-text">{{this.display}}</div>
+                    <div>{{this.label}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="margin-below">
+            <div class="header">4) Roll</div>
+            <div class="padme" {{b "if: !rolled"}}>
+                <div class="button short-button" {{b "click: rollCheck()"}}>Roll</div>
+            </div>
+            <div class="display-list" {{b "if: rolled"}}>
+                <div class="display-list-item success">
+                    <div></div>
+                    <div class="i-text">20</div>
+                    <div>Matt Barr</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

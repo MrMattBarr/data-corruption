@@ -16,7 +16,7 @@ Template.augments.viewmodel({
     },
     help: function() {},
     augments: function() {
-        var augmentList = [];
+        const augmentList = [];
         Augments.index.forEach(function(key) {
             augmentList.push(Augments.augments[key]);
         });

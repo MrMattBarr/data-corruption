@@ -19,7 +19,7 @@ ViewModel.share({
         },
         CurrentMessage: null,
         dismissMessage: function() {
-            var message = this.CurrentMessage.value;
+            const message = this.CurrentMessage.value;
             Messages.remove(this.CurrentMessage.value._id);
             Modal.hide(this.CurrentModal.value);
             this.CurrentModal(null);
@@ -34,8 +34,8 @@ Template.modal.viewmodel({
             return false;
         }
         if (!Meteor.user()) return false;
-        var profile = Profiles.findOne({ user: Meteor.user()._id });
-        var message = Messages.findOne({ recipient: profile.character });
+        const profile = Profiles.findOne({ user: Meteor.user()._id });
+        const message = Messages.findOne({ recipient: profile.character });
         if (!message) return false;
         if (message.attachment) {
             if (message.attachmentType == 'ITEM') {

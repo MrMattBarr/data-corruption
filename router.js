@@ -33,6 +33,9 @@ Router.map(function() {
     this.route('loot', {
         path: '/master/loot'
     });
+    this.route('statChecks', {
+        path: '/master/statchecks'
+    });
     this.route('/master/loot/:_id', {
         name: 'lootDetail',
         template: 'lootDetail',

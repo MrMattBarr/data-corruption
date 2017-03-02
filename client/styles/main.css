@@ -11,14 +11,26 @@ body {
     background-color: black;
 }
 
+.game-body {
+    position: fixed;
+    overflow: scroll;
+    top: 75px;
+    bottom: 0;
+    width: 100vw;
+}
+
 .bg-overlay-1 {
     height: 100vh;
+    position: fixed;
+    width: 100vw;
     background-image: url("wallpaper.jpg");
 }
 
 .bg-overlay-2 {
     background-image: url("bright-squares.png");
     height: 100vh;
+    width: 100vw;
+    position: fixed;
     background-color: rgba(31, 85, 138, .7);
 }
 
@@ -229,7 +241,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(25, 135, 235);
-    color: rgb(25, 135, 235);
+    color: rgb(41, 93, 140);
     margin-bottom: 20px;
 }
 
@@ -243,6 +255,10 @@ input {
 
 input:focus {
     border-color: #333;
+}
+
+input.short {
+    width: 50px;
 }
 
 .explanation-box input {

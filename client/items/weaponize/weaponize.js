@@ -1,7 +1,6 @@
 Weaponizer = {
     getCurrentField: function(item) {
-        for (var i = 0; i < Weaponizer.order.length; i++) {
-            var field = Weaponizer.order[i];
+        for (const field of Weaponizer.order) {
             if (!item[field]) return field;
         }
         return null;
@@ -16,8 +15,7 @@ Weaponizer = {
 
     },
     isWeaponized: function(item) {
-        for (var i = 0; i < Weaponizer.order.length; i++) {
-            var field = Weaponizer.order[i];
+        for (const field of Weaponizer.order) {
             if (!item[field] || !item[field].value) {
                 return false;
             }
@@ -125,7 +123,7 @@ Weaponizer = {
 Template.weaponize.viewmodel({
     share: ['header', 'menu'],
     onRendered: function() {
-        var vm = this;
+        const vm = this;
         if (!vm.name) {
             Router.go('items');
             return;
@@ -137,7 +135,7 @@ Template.weaponize.viewmodel({
                 route: 'items'
             }]);
         vm.headerText(vm.name.value);
-        var msgs = [
+        const msgs = [
             "weaponizing item..."
         ];
         vm.printHeaderMessages(msgs);

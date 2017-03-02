@@ -17,7 +17,7 @@ Template.item.viewmodel({
                 arguments: this._id.value
             }]);
         this.headerText(this.name.value);
-        var msgs = [
+        const msgs = [
             "display ITEM:" + this._id.value
         ];
         this.printHeaderMessages(msgs);

@@ -32,35 +32,66 @@
     box-shadow: 0 0 0;
 }
 
+.button.short-button {
+    width: 150px;
+}
+
 .binary-option-button i {
     font-size: 128px;
 }
 
-.options-list {
+.options-list,
+.display-list {
     display: flex;
+    margin: 10px -30px -30px 0;
+    flex-wrap: wrap;
 }
 
-.options-list > *:not(:last-child) {
-    margin-right: 30px;
-}
-
-.options-list-button .i-text {
+.options-list-button .i-text,
+.display-list-item .i-text {
     font-size: 28px;
+    color: rgb(25, 135, 235);
 }
 
+.options-list-button.pressed .i-text {
+    color: #000;
+}
+
+.display-list-item,
 .options-list-button {
+    margin-right: 30px;
+    margin-bottom: 30px;
     display: flex;
+    color: #283492;
     flex-direction: column;
-    border: 1px solid #666;
     width: 100px;
     align-items: center;
     justify-content: space-between;
     height: 100px;
-    background-color: #fafafa;
-    box-shadow: 1px 1px 1px #666;
     font-size: 16px;
-    cursor: pointer;
     padding: 2px;
+}
+
+.options-list-button {
+    box-shadow: 1px 1px 1px #666;
+    cursor: pointer;
+    background-color: #fafafa;
+    border: 1px solid #666;
+}
+
+.display-list-item {
+    border: 3px solid #666;
+}
+
+.display-list-item.success {
+    background-color: #b8d4b6;
+    color: #000;
+    border-color: #008200;
+}
+
+.display-list-item.success i,
+.display-list-item.success .i-text {
+    color: #008200;
 }
 
 .options-list-button:hover:not(.pressed):not(:active) {
@@ -80,4 +111,9 @@
 
 .options-list-button i {
     font-size: 48px;
+    color: rgb(25, 135, 235);
+}
+
+.options-list-button.pressed i {
+    color: #000;
 }

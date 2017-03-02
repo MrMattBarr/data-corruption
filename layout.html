@@ -5,14 +5,13 @@
 <template name="layout">
     <div class="bg-overlay-1">
         <div class="bg-overlay-2">
-            {{>modal}}
-            <div class="game-body">
-                {{>header}}
-                <div class="main-display">
-                    {{>yield}}
-                </div>
-                {{>menu}}
-            </div>
         </div>
+    </div>
+    <div class="game-body">
+        {{>modal}} {{>header}}
+        <div class="main-display">
+            {{>yield}}
+        </div>
+        {{>menu}}
     </div>
 </template>

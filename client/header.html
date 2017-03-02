@@ -1,8 +1,8 @@
 <template name="header">
     <div class="game-header">
         <div class="vertical-flexbox">
-            <div class="top-header-text">{{headerText}}</div>
-            <div class="character-summary" {{b "if: message.length > 0"}}>
+            <div class="top-header-text" {{b "click:checkLogIn()" }}>{{headerText}}</div>
+            <div class="character-summary " {{b "if: message.length> 0"}}>
                 <span>&gt;</span>
                 <span {{b "text: message"}}></span>
                 <span class="blinky">_</span>

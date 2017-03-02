@@ -8,35 +8,13 @@ Template.login.viewmodel({
         this.printHeaderMessages(["awaiting authentication"]);
         this.checkLogIn(this);
     },
-    checkLogIn: function(vm) {
-        if (!vm) vm = this;
-        vm.isLoggedIn(!!Meteor.user());
-        if (vm.isLoggedIn.value) {
-            var profile = Profiles.findOne({ user: Meteor.user()._id });
-            if (!profile) profile = Profiles.insert({
-                createdAt: new Date(),
-                user: Meteor.user()._id
-            });
-            var campaignId = profile.campaign;
-            if (campaignId) {
-                var campaign = Campaigns.findOne({ _id: campaignId });
-                if (campaign.master == profile._id) {
-                    this.go('master');
-                } else {
-                    this.go('home');
-                }
-            } else {
-                this.OpenModal('masterOrPlayerModal');
-            }
-        } else {
-            vm.menuItems([]);
-        }
+    logInOnEnter: function(e) {
+        console.log('e is this %O', e);
     },
     logIn: function() {
-        var vm = this;
+        const vm = this;
         Meteor.loginWithPassword(vm.username.value, vm.password.value, function(foo) {
-            var profile = Profiles.findOne({ user: Meteor.user()._id });
-            if (!profile) profile = Profiles.insert({
+            const profile = Profiles.findOne({ user: Meteor.user()._id }) || Profiles.insert({
                 createdAt: new Date(),
                 user: Meteor.user()._id
             });
@@ -45,7 +23,7 @@ Template.login.viewmodel({
         });
     },
     createAccount: function() {
-        var vm = this;
+        const vm = this;
         Accounts.createUser({
             email: this.username.value,
             password: this.password.value

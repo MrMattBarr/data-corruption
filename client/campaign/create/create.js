@@ -9,7 +9,7 @@ Template.campaignCreate.viewmodel({
                 route: 'home'
             }]);
         this.headerText("Campaign Creation");
-        var msgs = [
+        const msgs = [
             "initializing world..."
         ];
         this.printHeaderMessages(msgs);
@@ -35,10 +35,10 @@ Template.campaignCreate.viewmodel({
         value: 500
     }],
     createCampaign: function() {
-        var profile = this.profile()._id;
-        var name = this.campaignName.value;
-        var campaign = Campaigns.insert({
-            name: name,
+        const profile = this.profile()._id;
+        const name = this.campaignName.value;
+        const campaign = Campaigns.insert({
+            name,
             createdAt: new Date(),
             master: profile,
             startingExperience: this.experience.value

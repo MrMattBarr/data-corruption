@@ -6,26 +6,20 @@ Template.campaignJoin.viewmodel({
         this.headerText("Join a Campaign");
     },
     campaign: function() {
-        var code = parseInt(this.inviteCode());
-        var campaign = Campaigns.findOne({ inviteCode: code });
-        if (campaign) {
-            return campaign;
-        } else {
-            return null;
-        }
+        const code = parseInt(this.inviteCode());
+        return Campaigns.findOne({ inviteCode: code }) || null;
     },
     inviteCode: null,
     characterName: null,
     joinCampaign: function() {
         console.log('hi');
-        var cid = this.campaign()._id;
-        var name = this.characterName.value;
-        var user = Meteor.user()._id;
-        var profile = this.profile();
-        console.log('cid %O name %O user %O profile %O', cid, name, user, profile);
+        const cid = this.campaign()._id;
+        const name = this.characterName.value;
+        const user = Meteor.user()._id;
+        const profile = this.profile();
         if (cid && name && user && profile) {
-            var character = Characters.insert({
-                name: name,
+            const character = Characters.insert({
+                name,
                 createdAt: new Date(),
                 profile: profile._id,
                 campaign: cid

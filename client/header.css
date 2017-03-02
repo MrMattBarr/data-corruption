@@ -1,11 +1,7 @@
-.game-body {
-    max-width: 750px;
-}
-
 .main-display {
     padding: 10px;
     padding-bottom: 50px;
-    padding-top: 75px;
+    width: 750px;
 }
 
 .game-header {
@@ -16,9 +12,6 @@
     height: 50px;
     width: 100vw;
     white-space: nowrap;
-    /*background-color: rgb(31, 85, 138);
-background-image: url("bright-squares.png");
-*/
 }
 
 .top-header-text {
