@@ -19,8 +19,15 @@ Template.statChecks.viewmodel({
     },
     rollCheck: function() {
         this.rolled(true);
+        const rolls = [];
+        const foo = this.campaignMembers().toArray();
+        console.log('member %O', foo);
+        for (const member of this.campaignMembers()) {
+            console.log('member %O', member.name);
+        }
     },
     rolled: false,
+    results: [],
     selected: [],
     getSelected: function() {
         return this.selected.value.array();

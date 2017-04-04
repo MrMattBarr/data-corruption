@@ -13,7 +13,7 @@ body {
 
 .game-body {
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
     top: 75px;
     bottom: 0;
     width: 100vw;
