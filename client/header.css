@@ -1,7 +1,7 @@
 .main-display {
     padding: 10px;
     padding-bottom: 50px;
-    width: 750px;
+    max-width:750px;
 }
 
 .game-header {

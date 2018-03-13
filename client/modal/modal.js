@@ -30,20 +30,13 @@ ViewModel.share({
 Template.modal.viewmodel({
     share: 'modal',
     messageToShow: function() {
-        if (!!this.CurrentModal.value) {
-            return false;
-        }
-        if (!Meteor.user()) return false;
+        if(!Meteor.user()) return false;
         const profile = Profiles.findOne({ user: Meteor.user()._id });
-        const message = Messages.findOne({ recipient: profile.character });
-        if (!message) return false;
-        if (message.attachment) {
-            if (message.attachmentType == 'ITEM') {
-                message.attachment = Items.findOne({ _id: message.attachment });
-                this.OpenStaticModal('itemModal');
-            }
-        }
+        message = Messages.findOne({recipient: profile.character});
+        if(!message) return false;
+        if(!!message.sender) message.sender = Characters.findOne({ _id: message.sender });
+        console.log(message.sender);
         this.CurrentMessage(message);
         return true;
-    },
+    }
 });

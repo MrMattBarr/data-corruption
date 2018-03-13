@@ -3,12 +3,12 @@
     <link rel='icon' href='/favicon.png'>
 </head>
 <template name="layout">
+    {{>modal}} 
     <div class="bg-overlay-1">
         <div class="bg-overlay-2">
         </div>
     </div>
-    <div class="game-body">
-        {{>modal}} {{>header}}
+    <div class="game-body">{{>header}}
         <div class="main-display">
             {{>yield}}
         </div>

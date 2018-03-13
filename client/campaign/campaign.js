@@ -54,7 +54,10 @@ Template.campaign.viewmodel({
 
     },
     sendPlayerMessage: function(recipient) {
+        const profile = Profiles.findOne({ user: Meteor.user()._id });
+        console.log('profile is %O', profile.character);
         const message = {
+            sender: profile.character,
             recipient: recipient._id,
             text: "I sent you a message!"
         };
